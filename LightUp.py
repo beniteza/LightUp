@@ -7,8 +7,8 @@ import sys
 tokens = [
     #Color
     'RED', 'BLUE', 'GREEN', 'YELLOW', 'ORANGE', 'PURPLE', 'WHITE',
-    #RGB Color
-    'RGB',
+    # #RGB Color
+    # 'RGB',
     #Animation Type
     'RAINBOW', 'RANDOW_CYCLE', 'THEATER_CHASE_RAINBOW', 'COLOR_WIPE', 'THEATER_CHASE',
     #Number
@@ -60,8 +60,10 @@ def t_WHITE(t):
     t.value = 'WHITE'
     return t
 
-# def t_RGB(t):
-#     pass
+def t_RGB(t):
+    r'RGB'
+    t.value = 'RGB'
+    return t
 
 def t_RAINBOW(t):
     r'RAINBOW'
@@ -118,13 +120,19 @@ def p_run(p):
 def p_command(p):
     '''
     command : ANIMATE animation color miliseconds
+            | ANIMATE animation rgb miliseconds
     '''
     p[0] = (p[1], p[2], p[3], p[4])
+
+def p_rgb(p):
+  'rgb : LP NUMBER COMA NUMBER COMA NUMBER RP'
+  p[0] = p[1] + p[2] + p[3] + p[4] + p[5] + p[6] + p[7]
 
 def p_miliseconds(p):
     '''
     miliseconds : NUMBER
     '''
+    p[0] = p[1]
 
 def p_color(p):
   '''
