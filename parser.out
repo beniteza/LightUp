@@ -1,0 +1,272 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMA
+    LP
+    RGB
+    RP
+
+Grammar
+
+Rule 0     S' -> run
+Rule 1     run -> command
+Rule 2     run -> empty
+Rule 3     command -> ANIMATE animation color miliseconds
+Rule 4     miliseconds -> NUMBER
+Rule 5     color -> RED
+Rule 6     color -> BLUE
+Rule 7     color -> GREEN
+Rule 8     color -> YELLOW
+Rule 9     color -> ORANGE
+Rule 10    color -> PURPLE
+Rule 11    color -> WHITE
+Rule 12    animation -> RAINBOW
+Rule 13    animation -> RANDOW_CYCLE
+Rule 14    animation -> THEATER_CHASE_RAINBOW
+Rule 15    animation -> COLOR_WIPE
+Rule 16    animation -> THEATER_CHASE
+Rule 17    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ANIMATE              : 3
+BLUE                 : 6
+COLOR_WIPE           : 15
+COMA                 : 
+GREEN                : 7
+LP                   : 
+NUMBER               : 4
+ORANGE               : 9
+PURPLE               : 10
+RAINBOW              : 12
+RANDOW_CYCLE         : 13
+RED                  : 5
+RGB                  : 
+RP                   : 
+THEATER_CHASE        : 16
+THEATER_CHASE_RAINBOW : 14
+WHITE                : 11
+YELLOW               : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+animation            : 3
+color                : 3
+command              : 1
+empty                : 2
+miliseconds          : 3
+run                  : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . run
+    (1) run -> . command
+    (2) run -> . empty
+    (3) command -> . ANIMATE animation color miliseconds
+    (17) empty -> .
+
+    ANIMATE         shift and go to state 4
+    $end            reduce using rule 17 (empty -> .)
+
+    run                            shift and go to state 1
+    command                        shift and go to state 2
+    empty                          shift and go to state 3
+
+state 1
+
+    (0) S' -> run .
+
+
+
+state 2
+
+    (1) run -> command .
+
+    $end            reduce using rule 1 (run -> command .)
+
+
+state 3
+
+    (2) run -> empty .
+
+    $end            reduce using rule 2 (run -> empty .)
+
+
+state 4
+
+    (3) command -> ANIMATE . animation color miliseconds
+    (12) animation -> . RAINBOW
+    (13) animation -> . RANDOW_CYCLE
+    (14) animation -> . THEATER_CHASE_RAINBOW
+    (15) animation -> . COLOR_WIPE
+    (16) animation -> . THEATER_CHASE
+
+    RAINBOW         shift and go to state 6
+    RANDOW_CYCLE    shift and go to state 7
+    THEATER_CHASE_RAINBOW shift and go to state 8
+    COLOR_WIPE      shift and go to state 9
+    THEATER_CHASE   shift and go to state 10
+
+    animation                      shift and go to state 5
+
+state 5
+
+    (3) command -> ANIMATE animation . color miliseconds
+    (5) color -> . RED
+    (6) color -> . BLUE
+    (7) color -> . GREEN
+    (8) color -> . YELLOW
+    (9) color -> . ORANGE
+    (10) color -> . PURPLE
+    (11) color -> . WHITE
+
+    RED             shift and go to state 12
+    BLUE            shift and go to state 13
+    GREEN           shift and go to state 14
+    YELLOW          shift and go to state 15
+    ORANGE          shift and go to state 16
+    PURPLE          shift and go to state 17
+    WHITE           shift and go to state 18
+
+    color                          shift and go to state 11
+
+state 6
+
+    (12) animation -> RAINBOW .
+
+    RED             reduce using rule 12 (animation -> RAINBOW .)
+    BLUE            reduce using rule 12 (animation -> RAINBOW .)
+    GREEN           reduce using rule 12 (animation -> RAINBOW .)
+    YELLOW          reduce using rule 12 (animation -> RAINBOW .)
+    ORANGE          reduce using rule 12 (animation -> RAINBOW .)
+    PURPLE          reduce using rule 12 (animation -> RAINBOW .)
+    WHITE           reduce using rule 12 (animation -> RAINBOW .)
+
+
+state 7
+
+    (13) animation -> RANDOW_CYCLE .
+
+    RED             reduce using rule 13 (animation -> RANDOW_CYCLE .)
+    BLUE            reduce using rule 13 (animation -> RANDOW_CYCLE .)
+    GREEN           reduce using rule 13 (animation -> RANDOW_CYCLE .)
+    YELLOW          reduce using rule 13 (animation -> RANDOW_CYCLE .)
+    ORANGE          reduce using rule 13 (animation -> RANDOW_CYCLE .)
+    PURPLE          reduce using rule 13 (animation -> RANDOW_CYCLE .)
+    WHITE           reduce using rule 13 (animation -> RANDOW_CYCLE .)
+
+
+state 8
+
+    (14) animation -> THEATER_CHASE_RAINBOW .
+
+    RED             reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+    BLUE            reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+    GREEN           reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+    YELLOW          reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+    ORANGE          reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+    PURPLE          reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+    WHITE           reduce using rule 14 (animation -> THEATER_CHASE_RAINBOW .)
+
+
+state 9
+
+    (15) animation -> COLOR_WIPE .
+
+    RED             reduce using rule 15 (animation -> COLOR_WIPE .)
+    BLUE            reduce using rule 15 (animation -> COLOR_WIPE .)
+    GREEN           reduce using rule 15 (animation -> COLOR_WIPE .)
+    YELLOW          reduce using rule 15 (animation -> COLOR_WIPE .)
+    ORANGE          reduce using rule 15 (animation -> COLOR_WIPE .)
+    PURPLE          reduce using rule 15 (animation -> COLOR_WIPE .)
+    WHITE           reduce using rule 15 (animation -> COLOR_WIPE .)
+
+
+state 10
+
+    (16) animation -> THEATER_CHASE .
+
+    RED             reduce using rule 16 (animation -> THEATER_CHASE .)
+    BLUE            reduce using rule 16 (animation -> THEATER_CHASE .)
+    GREEN           reduce using rule 16 (animation -> THEATER_CHASE .)
+    YELLOW          reduce using rule 16 (animation -> THEATER_CHASE .)
+    ORANGE          reduce using rule 16 (animation -> THEATER_CHASE .)
+    PURPLE          reduce using rule 16 (animation -> THEATER_CHASE .)
+    WHITE           reduce using rule 16 (animation -> THEATER_CHASE .)
+
+
+state 11
+
+    (3) command -> ANIMATE animation color . miliseconds
+    (4) miliseconds -> . NUMBER
+
+    NUMBER          shift and go to state 20
+
+    miliseconds                    shift and go to state 19
+
+state 12
+
+    (5) color -> RED .
+
+    NUMBER          reduce using rule 5 (color -> RED .)
+
+
+state 13
+
+    (6) color -> BLUE .
+
+    NUMBER          reduce using rule 6 (color -> BLUE .)
+
+
+state 14
+
+    (7) color -> GREEN .
+
+    NUMBER          reduce using rule 7 (color -> GREEN .)
+
+
+state 15
+
+    (8) color -> YELLOW .
+
+    NUMBER          reduce using rule 8 (color -> YELLOW .)
+
+
+state 16
+
+    (9) color -> ORANGE .
+
+    NUMBER          reduce using rule 9 (color -> ORANGE .)
+
+
+state 17
+
+    (10) color -> PURPLE .
+
+    NUMBER          reduce using rule 10 (color -> PURPLE .)
+
+
+state 18
+
+    (11) color -> WHITE .
+
+    NUMBER          reduce using rule 11 (color -> WHITE .)
+
+
+state 19
+
+    (3) command -> ANIMATE animation color miliseconds .
+
+    $end            reduce using rule 3 (command -> ANIMATE animation color miliseconds .)
+
+
+state 20
+
+    (4) miliseconds -> NUMBER .
+
+    $end            reduce using rule 4 (miliseconds -> NUMBER .)
+
