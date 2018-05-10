@@ -1,6 +1,8 @@
 import ply.lex as lex
 import ply.yacc as yacc
 import sys
+import os
+import subprocess
 
 ######################### LEXER #########################
 
@@ -19,6 +21,8 @@ tokens = [
     'LP', 'RP', 'COMA',
     #Animate
     'ANIMATE',
+    #Button Position
+    'BUTTON_UP', 'BUTTON_DOWN',
     # Variable Name
     'NAME'
 ]
@@ -29,6 +33,16 @@ t_RP = r'\)'
 t_COMA = r'\,'
 t_EQUALS = r'\='
 t_ignore = ' \t\n'
+
+def t_BUTTON_UP(t):
+    r'BUTTON_UP'
+    t.value = 'BUTTON_UP'
+    return t
+
+def t_BUTTON_DOWN(t):
+    r'BUTTON_DOWN'
+    t.value = 'BUTTON_DOWN'
+    return t
 
 def t_RED(t):
     r'RED'
@@ -139,6 +153,7 @@ def p_var_assign(p):
                | NAME EQUALS rgb
                | NAME EQUALS miliseconds
                | NAME EQUALS animation
+               | NAME EQUALS button_pos
     '''
     p[0] = ('=', p[1], p[3])
 
@@ -148,6 +163,19 @@ def p_command(p):
             | ANIMATE animation rgb miliseconds
     '''
     p[0] = (p[1], p[2], p[3], p[4])
+
+def p_button_pos(p):
+    '''
+    button_pos : BUTTON_UP
+               | BUTTON_DOWN
+    '''
+    p[0] = p[1]
+
+def p_button_pos_var(p):
+    '''
+    button_pos : NAME
+    '''
+    p[0] = ('var', p[1])
 
 def p_rgb(p):
   'rgb : LP NUMBER COMA NUMBER COMA NUMBER RP'
@@ -233,9 +261,33 @@ def run(p):
     else:
         return p
 
-while True:
+# while True:
+#     try:
+#         s = input('>>')
+#     except EOFError:
+#         break
+#     parser.parse(s)
+
+def translateCode(p):
     try:
-        s = input('>>')
-    except EOFError:
-        break
-    parser.parse(s)
+        LightUpSource = open(p, 'r')
+    except IOError:
+        print("Error opening file")
+        exit()
+
+    fileText = LightUpSource.read()
+
+    parser.parse(fileText)
+
+file = 'LightUpCode.txt'
+translateCode(file)
+
+def openArduino():
+    try:
+        # subprocess.Popen('/usr/share/applications/Arduino IDE')
+        os.system('/home/ubuntu/Downloads/arduino-1.8.5/arduino')
+    except Exception:
+        print("Cannot open Arduino IDE")
+
+openArduino()
+
