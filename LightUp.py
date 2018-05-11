@@ -24,7 +24,9 @@ tokens = [
     #Button Position
     'BUTTON_UP', 'BUTTON_DOWN',
     # Variable Name
-    'NAME'
+    'NAME',
+    #NEW LINE
+    'NEW_LINE'
 ]
 
 t_NUMBER = r'[0-9]+'
@@ -32,7 +34,13 @@ t_LP = r'\('
 t_RP = r'\)'
 t_COMA = r'\,'
 t_EQUALS = r'\='
-t_ignore = ' \t\n'
+# t_ignore = ' '
+t_ignore = ' \t'
+
+def t_NEW_LINE(t):
+    r'\n'
+    t.value = 'NEW_LINE'
+    return t
 
 def t_BUTTON_UP(t):
     r'BUTTON_UP'
@@ -124,7 +132,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
-# lexer.input("ANIMATE (RAINBOW YELLOW 50)")
+# lexer.input("ANIMATE (RAINBOW YELLOW 50) \n =")
 #
 # while True:
 #     tok = lexer.token()
@@ -140,11 +148,13 @@ precedence = (
 
 def p_execute(p):
     '''
-    execute : command
-        | var_assign
-        | empty
+    execute : command NEW_LINE
+            | command NEW_LINE command NEW_LINE
+            | var_assign
+            | empty
     '''
     print(p[1])
+    print(p[3])
     # print(run(p[1]))
 
 def p_var_assign(p):
@@ -156,6 +166,12 @@ def p_var_assign(p):
                | NAME EQUALS button_pos
     '''
     p[0] = ('=', p[1], p[3])
+
+# def p_command_recursive(p):
+#     '''
+#     command: command NEW_LINE command
+#     '''
+#     p[0] = ('NEW_LINE', p[1], p[3])
 
 def p_command(p):
     '''
@@ -282,12 +298,71 @@ def translateCode(p):
 file = 'LightUpCode.txt'
 translateCode(file)
 
-def openArduino():
-    try:
-        # subprocess.Popen('/usr/share/applications/Arduino IDE')
-        os.system('/home/ubuntu/Downloads/arduino-1.8.5/arduino')
-    except Exception:
-        print("Cannot open Arduino IDE")
+# def openArduino():
+#     try:
+#         # subprocess.Popen('/usr/share/applications/Arduino IDE')
+#         os.system('/home/ubuntu/Downloads/arduino-1.8.5/arduino')
+#     except Exception:
+#         print("Cannot open Arduino IDE")
+#
+# openArduino()
 
-openArduino()
+######################### INTERMEDIATE CODE #########################
+arduinoCode = []
+
+defaultCode = "#include <Adafruit_NeoPixel.h> \n" \
+              "#ifdef __AVR__ \n" \
+              "#include <avr/power.h> \n" \
+              "#endif \n" \
+              "#define PIN 6 Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800); \n" \
+              "void setup() \n" \
+              "{ \n" \
+              "#if defined (__AVR_ATtiny85__) \n" \
+              "if (F_CPU == 16000000) clock_prescale_set(clock_div_1); \n" \
+              "#endif \n" \
+              "// End of trinket special code \n" \
+              "strip.begin(); \n" \
+              "strip.show(); \n" \
+              "// Initialize all pixels to 'off' \n" \
+              "} \n" \
+              "// Fill the dots one after the other with a color \n" \
+              "void colorWipe(uint32_t c, uint8_t wait) \n" \
+              "{ \n" \
+              "for(uint16_t i=0; i<strip.numPixels(); i++) { \n" \
+              "strip.setPixelColor(i, c); strip.show(); \n" \
+              "delay(wait); \n" \
+              "} \n" \
+              "} \n" \
+              "void rainbow(uint8_t wait) \n" \
+              "{ \n" \
+              "uint16_t i, j; \n" \
+              "for(j=0; j<256; j++) { \n" \
+              "for(i=0; i<strip.numPixels(); i++) { \n" \
+              "strip.setPixelColor(i, Wheel((i+j) & 255)); \n" \
+              "} \n" \
+              "strip.show(); \n" \
+              "delay(wait); \n" \
+              "} \n" \
+              "} \n" \
+              "void theaterChase(uint32_t c, uint8_t wait) \n" \
+              "{ \n" \
+              "for (int j=0; j<10; j++) { \n" \
+              "//do 10 cycles of chasing \n" \
+              "for (int q=0; q < 3; q++) { \n" \
+              "for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
+              "strip.setPixelColor(i+q, c); \n" \
+              "} \n" \
+              "strip.show(); \n" \
+              "delay(wait); \n" \
+              "for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
+              "strip.setPixelColor(i+q, 0); \n" \
+              "} \n" \
+              "} \n" \
+              "} \n" \
+              "}"
+
+filePath = "test.ino"
+test = open(filePath, 'w')
+test.write(defaultCode)
+test.close()
 

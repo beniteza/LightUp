@@ -3,96 +3,99 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Grammar
 
 Rule 0     S' -> execute
-Rule 1     execute -> command
-Rule 2     execute -> var_assign
-Rule 3     execute -> empty
-Rule 4     var_assign -> NAME EQUALS color
-Rule 5     var_assign -> NAME EQUALS rgb
-Rule 6     var_assign -> NAME EQUALS miliseconds
-Rule 7     var_assign -> NAME EQUALS animation
-Rule 8     var_assign -> NAME EQUALS button_pos
-Rule 9     command -> ANIMATE animation color miliseconds
-Rule 10    command -> ANIMATE animation rgb miliseconds
-Rule 11    button_pos -> BUTTON_UP
-Rule 12    button_pos -> BUTTON_DOWN
-Rule 13    button_pos -> NAME
-Rule 14    rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP
-Rule 15    rgb -> NAME
-Rule 16    miliseconds -> NUMBER
-Rule 17    miliseconds -> NAME
-Rule 18    color -> RED
-Rule 19    color -> BLUE
-Rule 20    color -> GREEN
-Rule 21    color -> YELLOW
-Rule 22    color -> ORANGE
-Rule 23    color -> PURPLE
-Rule 24    color -> WHITE
-Rule 25    color -> NAME
-Rule 26    animation -> RAINBOW
-Rule 27    animation -> RANDOW_CYCLE
-Rule 28    animation -> THEATER_CHASE_RAINBOW
-Rule 29    animation -> COLOR_WIPE
-Rule 30    animation -> THEATER_CHASE
-Rule 31    animation -> NAME
-Rule 32    empty -> <empty>
+Rule 1     execute -> command NEW_LINE
+Rule 2     execute -> command NEW_LINE command NEW_LINE
+Rule 3     execute -> var_assign
+Rule 4     execute -> empty
+Rule 5     var_assign -> NAME EQUALS color
+Rule 6     var_assign -> NAME EQUALS rgb
+Rule 7     var_assign -> NAME EQUALS miliseconds
+Rule 8     var_assign -> NAME EQUALS animation
+Rule 9     var_assign -> NAME EQUALS button_pos
+Rule 10    command -> ANIMATE animation color miliseconds
+Rule 11    command -> ANIMATE animation rgb miliseconds
+Rule 12    button_pos -> BUTTON_UP
+Rule 13    button_pos -> BUTTON_DOWN
+Rule 14    button_pos -> NAME
+Rule 15    rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP
+Rule 16    rgb -> NAME
+Rule 17    miliseconds -> NUMBER
+Rule 18    miliseconds -> NAME
+Rule 19    color -> RED
+Rule 20    color -> BLUE
+Rule 21    color -> GREEN
+Rule 22    color -> YELLOW
+Rule 23    color -> ORANGE
+Rule 24    color -> PURPLE
+Rule 25    color -> WHITE
+Rule 26    color -> NAME
+Rule 27    animation -> RAINBOW
+Rule 28    animation -> RANDOW_CYCLE
+Rule 29    animation -> THEATER_CHASE_RAINBOW
+Rule 30    animation -> COLOR_WIPE
+Rule 31    animation -> THEATER_CHASE
+Rule 32    animation -> NAME
+Rule 33    empty -> <empty>
 
 Terminals, with rules where they appear
 
-ANIMATE              : 9 10
-BLUE                 : 19
-BUTTON_DOWN          : 12
-BUTTON_UP            : 11
-COLOR_WIPE           : 29
-COMA                 : 14 14
-EQUALS               : 4 5 6 7 8
-GREEN                : 20
-LP                   : 14
-NAME                 : 4 5 6 7 8 13 15 17 25 31
-NUMBER               : 14 14 14 16
-ORANGE               : 22
-PURPLE               : 23
-RAINBOW              : 26
-RANDOW_CYCLE         : 27
-RED                  : 18
-RP                   : 14
-THEATER_CHASE        : 30
-THEATER_CHASE_RAINBOW : 28
-WHITE                : 24
-YELLOW               : 21
+ANIMATE              : 10 11
+BLUE                 : 20
+BUTTON_DOWN          : 13
+BUTTON_UP            : 12
+COLOR_WIPE           : 30
+COMA                 : 15 15
+EQUALS               : 5 6 7 8 9
+GREEN                : 21
+LP                   : 15
+NAME                 : 5 6 7 8 9 14 16 18 26 32
+NEW_LINE             : 1 2 2
+NUMBER               : 15 15 15 17
+ORANGE               : 23
+PURPLE               : 24
+RAINBOW              : 27
+RANDOW_CYCLE         : 28
+RED                  : 19
+RP                   : 15
+THEATER_CHASE        : 31
+THEATER_CHASE_RAINBOW : 29
+WHITE                : 25
+YELLOW               : 22
 error                : 
 
 Nonterminals, with rules where they appear
 
-animation            : 7 9 10
-button_pos           : 8
-color                : 4 9
-command              : 1
-empty                : 3
+animation            : 8 10 11
+button_pos           : 9
+color                : 5 10
+command              : 1 2 2
+empty                : 4
 execute              : 0
-miliseconds          : 6 9 10
-rgb                  : 5 10
-var_assign           : 2
+miliseconds          : 7 10 11
+rgb                  : 6 11
+var_assign           : 3
 
 Parsing method: LALR
 
 state 0
 
     (0) S' -> . execute
-    (1) execute -> . command
-    (2) execute -> . var_assign
-    (3) execute -> . empty
-    (9) command -> . ANIMATE animation color miliseconds
-    (10) command -> . ANIMATE animation rgb miliseconds
-    (4) var_assign -> . NAME EQUALS color
-    (5) var_assign -> . NAME EQUALS rgb
-    (6) var_assign -> . NAME EQUALS miliseconds
-    (7) var_assign -> . NAME EQUALS animation
-    (8) var_assign -> . NAME EQUALS button_pos
-    (32) empty -> .
+    (1) execute -> . command NEW_LINE
+    (2) execute -> . command NEW_LINE command NEW_LINE
+    (3) execute -> . var_assign
+    (4) execute -> . empty
+    (10) command -> . ANIMATE animation color miliseconds
+    (11) command -> . ANIMATE animation rgb miliseconds
+    (5) var_assign -> . NAME EQUALS color
+    (6) var_assign -> . NAME EQUALS rgb
+    (7) var_assign -> . NAME EQUALS miliseconds
+    (8) var_assign -> . NAME EQUALS animation
+    (9) var_assign -> . NAME EQUALS button_pos
+    (33) empty -> .
 
     ANIMATE         shift and go to state 5
     NAME            shift and go to state 6
-    $end            reduce using rule 32 (empty -> .)
+    $end            reduce using rule 33 (empty -> .)
 
     execute                        shift and go to state 1
     command                        shift and go to state 2
@@ -107,489 +110,517 @@ state 1
 
 state 2
 
-    (1) execute -> command .
+    (1) execute -> command . NEW_LINE
+    (2) execute -> command . NEW_LINE command NEW_LINE
 
-    $end            reduce using rule 1 (execute -> command .)
+    NEW_LINE        shift and go to state 7
 
 
 state 3
 
-    (2) execute -> var_assign .
+    (3) execute -> var_assign .
 
-    $end            reduce using rule 2 (execute -> var_assign .)
+    $end            reduce using rule 3 (execute -> var_assign .)
 
 
 state 4
 
-    (3) execute -> empty .
+    (4) execute -> empty .
 
-    $end            reduce using rule 3 (execute -> empty .)
+    $end            reduce using rule 4 (execute -> empty .)
 
 
 state 5
 
-    (9) command -> ANIMATE . animation color miliseconds
-    (10) command -> ANIMATE . animation rgb miliseconds
-    (26) animation -> . RAINBOW
-    (27) animation -> . RANDOW_CYCLE
-    (28) animation -> . THEATER_CHASE_RAINBOW
-    (29) animation -> . COLOR_WIPE
-    (30) animation -> . THEATER_CHASE
-    (31) animation -> . NAME
+    (10) command -> ANIMATE . animation color miliseconds
+    (11) command -> ANIMATE . animation rgb miliseconds
+    (27) animation -> . RAINBOW
+    (28) animation -> . RANDOW_CYCLE
+    (29) animation -> . THEATER_CHASE_RAINBOW
+    (30) animation -> . COLOR_WIPE
+    (31) animation -> . THEATER_CHASE
+    (32) animation -> . NAME
 
-    RAINBOW         shift and go to state 8
-    RANDOW_CYCLE    shift and go to state 9
-    THEATER_CHASE_RAINBOW shift and go to state 10
-    COLOR_WIPE      shift and go to state 11
-    THEATER_CHASE   shift and go to state 12
-    NAME            shift and go to state 13
+    RAINBOW         shift and go to state 9
+    RANDOW_CYCLE    shift and go to state 10
+    THEATER_CHASE_RAINBOW shift and go to state 11
+    COLOR_WIPE      shift and go to state 12
+    THEATER_CHASE   shift and go to state 13
+    NAME            shift and go to state 14
 
-    animation                      shift and go to state 7
+    animation                      shift and go to state 8
 
 state 6
 
-    (4) var_assign -> NAME . EQUALS color
-    (5) var_assign -> NAME . EQUALS rgb
-    (6) var_assign -> NAME . EQUALS miliseconds
-    (7) var_assign -> NAME . EQUALS animation
-    (8) var_assign -> NAME . EQUALS button_pos
+    (5) var_assign -> NAME . EQUALS color
+    (6) var_assign -> NAME . EQUALS rgb
+    (7) var_assign -> NAME . EQUALS miliseconds
+    (8) var_assign -> NAME . EQUALS animation
+    (9) var_assign -> NAME . EQUALS button_pos
 
-    EQUALS          shift and go to state 14
+    EQUALS          shift and go to state 15
 
 
 state 7
 
-    (9) command -> ANIMATE animation . color miliseconds
-    (10) command -> ANIMATE animation . rgb miliseconds
-    (18) color -> . RED
-    (19) color -> . BLUE
-    (20) color -> . GREEN
-    (21) color -> . YELLOW
-    (22) color -> . ORANGE
-    (23) color -> . PURPLE
-    (24) color -> . WHITE
-    (25) color -> . NAME
-    (14) rgb -> . LP NUMBER COMA NUMBER COMA NUMBER RP
-    (15) rgb -> . NAME
+    (1) execute -> command NEW_LINE .
+    (2) execute -> command NEW_LINE . command NEW_LINE
+    (10) command -> . ANIMATE animation color miliseconds
+    (11) command -> . ANIMATE animation rgb miliseconds
 
-    RED             shift and go to state 17
-    BLUE            shift and go to state 18
-    GREEN           shift and go to state 19
-    YELLOW          shift and go to state 20
-    ORANGE          shift and go to state 21
-    PURPLE          shift and go to state 22
-    WHITE           shift and go to state 23
-    NAME            shift and go to state 24
-    LP              shift and go to state 25
+    $end            reduce using rule 1 (execute -> command NEW_LINE .)
+    ANIMATE         shift and go to state 5
 
-    color                          shift and go to state 15
-    rgb                            shift and go to state 16
+    command                        shift and go to state 16
 
 state 8
 
-    (26) animation -> RAINBOW .
+    (10) command -> ANIMATE animation . color miliseconds
+    (11) command -> ANIMATE animation . rgb miliseconds
+    (19) color -> . RED
+    (20) color -> . BLUE
+    (21) color -> . GREEN
+    (22) color -> . YELLOW
+    (23) color -> . ORANGE
+    (24) color -> . PURPLE
+    (25) color -> . WHITE
+    (26) color -> . NAME
+    (15) rgb -> . LP NUMBER COMA NUMBER COMA NUMBER RP
+    (16) rgb -> . NAME
 
-    RED             reduce using rule 26 (animation -> RAINBOW .)
-    BLUE            reduce using rule 26 (animation -> RAINBOW .)
-    GREEN           reduce using rule 26 (animation -> RAINBOW .)
-    YELLOW          reduce using rule 26 (animation -> RAINBOW .)
-    ORANGE          reduce using rule 26 (animation -> RAINBOW .)
-    PURPLE          reduce using rule 26 (animation -> RAINBOW .)
-    WHITE           reduce using rule 26 (animation -> RAINBOW .)
-    NAME            reduce using rule 26 (animation -> RAINBOW .)
-    LP              reduce using rule 26 (animation -> RAINBOW .)
-    $end            reduce using rule 26 (animation -> RAINBOW .)
+    RED             shift and go to state 19
+    BLUE            shift and go to state 20
+    GREEN           shift and go to state 21
+    YELLOW          shift and go to state 22
+    ORANGE          shift and go to state 23
+    PURPLE          shift and go to state 24
+    WHITE           shift and go to state 25
+    NAME            shift and go to state 26
+    LP              shift and go to state 27
 
+    color                          shift and go to state 17
+    rgb                            shift and go to state 18
 
 state 9
 
-    (27) animation -> RANDOW_CYCLE .
+    (27) animation -> RAINBOW .
 
-    RED             reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    BLUE            reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    GREEN           reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    YELLOW          reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    ORANGE          reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    PURPLE          reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    WHITE           reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    NAME            reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    LP              reduce using rule 27 (animation -> RANDOW_CYCLE .)
-    $end            reduce using rule 27 (animation -> RANDOW_CYCLE .)
+    RED             reduce using rule 27 (animation -> RAINBOW .)
+    BLUE            reduce using rule 27 (animation -> RAINBOW .)
+    GREEN           reduce using rule 27 (animation -> RAINBOW .)
+    YELLOW          reduce using rule 27 (animation -> RAINBOW .)
+    ORANGE          reduce using rule 27 (animation -> RAINBOW .)
+    PURPLE          reduce using rule 27 (animation -> RAINBOW .)
+    WHITE           reduce using rule 27 (animation -> RAINBOW .)
+    NAME            reduce using rule 27 (animation -> RAINBOW .)
+    LP              reduce using rule 27 (animation -> RAINBOW .)
+    $end            reduce using rule 27 (animation -> RAINBOW .)
 
 
 state 10
 
-    (28) animation -> THEATER_CHASE_RAINBOW .
+    (28) animation -> RANDOW_CYCLE .
 
-    RED             reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    BLUE            reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    GREEN           reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    YELLOW          reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    ORANGE          reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    PURPLE          reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    WHITE           reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    NAME            reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    LP              reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
-    $end            reduce using rule 28 (animation -> THEATER_CHASE_RAINBOW .)
+    RED             reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    BLUE            reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    GREEN           reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    YELLOW          reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    ORANGE          reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    PURPLE          reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    WHITE           reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    NAME            reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    LP              reduce using rule 28 (animation -> RANDOW_CYCLE .)
+    $end            reduce using rule 28 (animation -> RANDOW_CYCLE .)
 
 
 state 11
 
-    (29) animation -> COLOR_WIPE .
+    (29) animation -> THEATER_CHASE_RAINBOW .
 
-    RED             reduce using rule 29 (animation -> COLOR_WIPE .)
-    BLUE            reduce using rule 29 (animation -> COLOR_WIPE .)
-    GREEN           reduce using rule 29 (animation -> COLOR_WIPE .)
-    YELLOW          reduce using rule 29 (animation -> COLOR_WIPE .)
-    ORANGE          reduce using rule 29 (animation -> COLOR_WIPE .)
-    PURPLE          reduce using rule 29 (animation -> COLOR_WIPE .)
-    WHITE           reduce using rule 29 (animation -> COLOR_WIPE .)
-    NAME            reduce using rule 29 (animation -> COLOR_WIPE .)
-    LP              reduce using rule 29 (animation -> COLOR_WIPE .)
-    $end            reduce using rule 29 (animation -> COLOR_WIPE .)
+    RED             reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    BLUE            reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    GREEN           reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    YELLOW          reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    ORANGE          reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    PURPLE          reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    WHITE           reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    NAME            reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    LP              reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
+    $end            reduce using rule 29 (animation -> THEATER_CHASE_RAINBOW .)
 
 
 state 12
 
-    (30) animation -> THEATER_CHASE .
+    (30) animation -> COLOR_WIPE .
 
-    RED             reduce using rule 30 (animation -> THEATER_CHASE .)
-    BLUE            reduce using rule 30 (animation -> THEATER_CHASE .)
-    GREEN           reduce using rule 30 (animation -> THEATER_CHASE .)
-    YELLOW          reduce using rule 30 (animation -> THEATER_CHASE .)
-    ORANGE          reduce using rule 30 (animation -> THEATER_CHASE .)
-    PURPLE          reduce using rule 30 (animation -> THEATER_CHASE .)
-    WHITE           reduce using rule 30 (animation -> THEATER_CHASE .)
-    NAME            reduce using rule 30 (animation -> THEATER_CHASE .)
-    LP              reduce using rule 30 (animation -> THEATER_CHASE .)
-    $end            reduce using rule 30 (animation -> THEATER_CHASE .)
+    RED             reduce using rule 30 (animation -> COLOR_WIPE .)
+    BLUE            reduce using rule 30 (animation -> COLOR_WIPE .)
+    GREEN           reduce using rule 30 (animation -> COLOR_WIPE .)
+    YELLOW          reduce using rule 30 (animation -> COLOR_WIPE .)
+    ORANGE          reduce using rule 30 (animation -> COLOR_WIPE .)
+    PURPLE          reduce using rule 30 (animation -> COLOR_WIPE .)
+    WHITE           reduce using rule 30 (animation -> COLOR_WIPE .)
+    NAME            reduce using rule 30 (animation -> COLOR_WIPE .)
+    LP              reduce using rule 30 (animation -> COLOR_WIPE .)
+    $end            reduce using rule 30 (animation -> COLOR_WIPE .)
 
 
 state 13
 
-    (31) animation -> NAME .
+    (31) animation -> THEATER_CHASE .
 
-    RED             reduce using rule 31 (animation -> NAME .)
-    BLUE            reduce using rule 31 (animation -> NAME .)
-    GREEN           reduce using rule 31 (animation -> NAME .)
-    YELLOW          reduce using rule 31 (animation -> NAME .)
-    ORANGE          reduce using rule 31 (animation -> NAME .)
-    PURPLE          reduce using rule 31 (animation -> NAME .)
-    WHITE           reduce using rule 31 (animation -> NAME .)
-    NAME            reduce using rule 31 (animation -> NAME .)
-    LP              reduce using rule 31 (animation -> NAME .)
+    RED             reduce using rule 31 (animation -> THEATER_CHASE .)
+    BLUE            reduce using rule 31 (animation -> THEATER_CHASE .)
+    GREEN           reduce using rule 31 (animation -> THEATER_CHASE .)
+    YELLOW          reduce using rule 31 (animation -> THEATER_CHASE .)
+    ORANGE          reduce using rule 31 (animation -> THEATER_CHASE .)
+    PURPLE          reduce using rule 31 (animation -> THEATER_CHASE .)
+    WHITE           reduce using rule 31 (animation -> THEATER_CHASE .)
+    NAME            reduce using rule 31 (animation -> THEATER_CHASE .)
+    LP              reduce using rule 31 (animation -> THEATER_CHASE .)
+    $end            reduce using rule 31 (animation -> THEATER_CHASE .)
 
 
 state 14
 
-    (4) var_assign -> NAME EQUALS . color
-    (5) var_assign -> NAME EQUALS . rgb
-    (6) var_assign -> NAME EQUALS . miliseconds
-    (7) var_assign -> NAME EQUALS . animation
-    (8) var_assign -> NAME EQUALS . button_pos
-    (18) color -> . RED
-    (19) color -> . BLUE
-    (20) color -> . GREEN
-    (21) color -> . YELLOW
-    (22) color -> . ORANGE
-    (23) color -> . PURPLE
-    (24) color -> . WHITE
-    (25) color -> . NAME
-    (14) rgb -> . LP NUMBER COMA NUMBER COMA NUMBER RP
-    (15) rgb -> . NAME
-    (16) miliseconds -> . NUMBER
-    (17) miliseconds -> . NAME
-    (26) animation -> . RAINBOW
-    (27) animation -> . RANDOW_CYCLE
-    (28) animation -> . THEATER_CHASE_RAINBOW
-    (29) animation -> . COLOR_WIPE
-    (30) animation -> . THEATER_CHASE
-    (31) animation -> . NAME
-    (11) button_pos -> . BUTTON_UP
-    (12) button_pos -> . BUTTON_DOWN
-    (13) button_pos -> . NAME
+    (32) animation -> NAME .
 
-    RED             shift and go to state 17
-    BLUE            shift and go to state 18
-    GREEN           shift and go to state 19
-    YELLOW          shift and go to state 20
-    ORANGE          shift and go to state 21
-    PURPLE          shift and go to state 22
-    WHITE           shift and go to state 23
-    NAME            shift and go to state 26
-    LP              shift and go to state 25
-    NUMBER          shift and go to state 32
-    RAINBOW         shift and go to state 8
-    RANDOW_CYCLE    shift and go to state 9
-    THEATER_CHASE_RAINBOW shift and go to state 10
-    COLOR_WIPE      shift and go to state 11
-    THEATER_CHASE   shift and go to state 12
-    BUTTON_UP       shift and go to state 33
-    BUTTON_DOWN     shift and go to state 34
+    RED             reduce using rule 32 (animation -> NAME .)
+    BLUE            reduce using rule 32 (animation -> NAME .)
+    GREEN           reduce using rule 32 (animation -> NAME .)
+    YELLOW          reduce using rule 32 (animation -> NAME .)
+    ORANGE          reduce using rule 32 (animation -> NAME .)
+    PURPLE          reduce using rule 32 (animation -> NAME .)
+    WHITE           reduce using rule 32 (animation -> NAME .)
+    NAME            reduce using rule 32 (animation -> NAME .)
+    LP              reduce using rule 32 (animation -> NAME .)
 
-    color                          shift and go to state 27
-    rgb                            shift and go to state 28
-    miliseconds                    shift and go to state 29
-    animation                      shift and go to state 30
-    button_pos                     shift and go to state 31
 
 state 15
 
-    (9) command -> ANIMATE animation color . miliseconds
-    (16) miliseconds -> . NUMBER
-    (17) miliseconds -> . NAME
+    (5) var_assign -> NAME EQUALS . color
+    (6) var_assign -> NAME EQUALS . rgb
+    (7) var_assign -> NAME EQUALS . miliseconds
+    (8) var_assign -> NAME EQUALS . animation
+    (9) var_assign -> NAME EQUALS . button_pos
+    (19) color -> . RED
+    (20) color -> . BLUE
+    (21) color -> . GREEN
+    (22) color -> . YELLOW
+    (23) color -> . ORANGE
+    (24) color -> . PURPLE
+    (25) color -> . WHITE
+    (26) color -> . NAME
+    (15) rgb -> . LP NUMBER COMA NUMBER COMA NUMBER RP
+    (16) rgb -> . NAME
+    (17) miliseconds -> . NUMBER
+    (18) miliseconds -> . NAME
+    (27) animation -> . RAINBOW
+    (28) animation -> . RANDOW_CYCLE
+    (29) animation -> . THEATER_CHASE_RAINBOW
+    (30) animation -> . COLOR_WIPE
+    (31) animation -> . THEATER_CHASE
+    (32) animation -> . NAME
+    (12) button_pos -> . BUTTON_UP
+    (13) button_pos -> . BUTTON_DOWN
+    (14) button_pos -> . NAME
 
-    NUMBER          shift and go to state 32
-    NAME            shift and go to state 36
+    RED             shift and go to state 19
+    BLUE            shift and go to state 20
+    GREEN           shift and go to state 21
+    YELLOW          shift and go to state 22
+    ORANGE          shift and go to state 23
+    PURPLE          shift and go to state 24
+    WHITE           shift and go to state 25
+    NAME            shift and go to state 28
+    LP              shift and go to state 27
+    NUMBER          shift and go to state 34
+    RAINBOW         shift and go to state 9
+    RANDOW_CYCLE    shift and go to state 10
+    THEATER_CHASE_RAINBOW shift and go to state 11
+    COLOR_WIPE      shift and go to state 12
+    THEATER_CHASE   shift and go to state 13
+    BUTTON_UP       shift and go to state 35
+    BUTTON_DOWN     shift and go to state 36
 
-    miliseconds                    shift and go to state 35
+    color                          shift and go to state 29
+    rgb                            shift and go to state 30
+    miliseconds                    shift and go to state 31
+    animation                      shift and go to state 32
+    button_pos                     shift and go to state 33
 
 state 16
 
-    (10) command -> ANIMATE animation rgb . miliseconds
-    (16) miliseconds -> . NUMBER
-    (17) miliseconds -> . NAME
+    (2) execute -> command NEW_LINE command . NEW_LINE
 
-    NUMBER          shift and go to state 32
-    NAME            shift and go to state 36
+    NEW_LINE        shift and go to state 37
 
-    miliseconds                    shift and go to state 37
 
 state 17
 
-    (18) color -> RED .
+    (10) command -> ANIMATE animation color . miliseconds
+    (17) miliseconds -> . NUMBER
+    (18) miliseconds -> . NAME
 
-    NUMBER          reduce using rule 18 (color -> RED .)
-    NAME            reduce using rule 18 (color -> RED .)
-    $end            reduce using rule 18 (color -> RED .)
+    NUMBER          shift and go to state 34
+    NAME            shift and go to state 39
 
+    miliseconds                    shift and go to state 38
 
 state 18
 
-    (19) color -> BLUE .
+    (11) command -> ANIMATE animation rgb . miliseconds
+    (17) miliseconds -> . NUMBER
+    (18) miliseconds -> . NAME
 
-    NUMBER          reduce using rule 19 (color -> BLUE .)
-    NAME            reduce using rule 19 (color -> BLUE .)
-    $end            reduce using rule 19 (color -> BLUE .)
+    NUMBER          shift and go to state 34
+    NAME            shift and go to state 39
 
+    miliseconds                    shift and go to state 40
 
 state 19
 
-    (20) color -> GREEN .
+    (19) color -> RED .
 
-    NUMBER          reduce using rule 20 (color -> GREEN .)
-    NAME            reduce using rule 20 (color -> GREEN .)
-    $end            reduce using rule 20 (color -> GREEN .)
+    NUMBER          reduce using rule 19 (color -> RED .)
+    NAME            reduce using rule 19 (color -> RED .)
+    $end            reduce using rule 19 (color -> RED .)
 
 
 state 20
 
-    (21) color -> YELLOW .
+    (20) color -> BLUE .
 
-    NUMBER          reduce using rule 21 (color -> YELLOW .)
-    NAME            reduce using rule 21 (color -> YELLOW .)
-    $end            reduce using rule 21 (color -> YELLOW .)
+    NUMBER          reduce using rule 20 (color -> BLUE .)
+    NAME            reduce using rule 20 (color -> BLUE .)
+    $end            reduce using rule 20 (color -> BLUE .)
 
 
 state 21
 
-    (22) color -> ORANGE .
+    (21) color -> GREEN .
 
-    NUMBER          reduce using rule 22 (color -> ORANGE .)
-    NAME            reduce using rule 22 (color -> ORANGE .)
-    $end            reduce using rule 22 (color -> ORANGE .)
+    NUMBER          reduce using rule 21 (color -> GREEN .)
+    NAME            reduce using rule 21 (color -> GREEN .)
+    $end            reduce using rule 21 (color -> GREEN .)
 
 
 state 22
 
-    (23) color -> PURPLE .
+    (22) color -> YELLOW .
 
-    NUMBER          reduce using rule 23 (color -> PURPLE .)
-    NAME            reduce using rule 23 (color -> PURPLE .)
-    $end            reduce using rule 23 (color -> PURPLE .)
+    NUMBER          reduce using rule 22 (color -> YELLOW .)
+    NAME            reduce using rule 22 (color -> YELLOW .)
+    $end            reduce using rule 22 (color -> YELLOW .)
 
 
 state 23
 
-    (24) color -> WHITE .
+    (23) color -> ORANGE .
 
-    NUMBER          reduce using rule 24 (color -> WHITE .)
-    NAME            reduce using rule 24 (color -> WHITE .)
-    $end            reduce using rule 24 (color -> WHITE .)
+    NUMBER          reduce using rule 23 (color -> ORANGE .)
+    NAME            reduce using rule 23 (color -> ORANGE .)
+    $end            reduce using rule 23 (color -> ORANGE .)
 
 
 state 24
 
-    (25) color -> NAME .
-    (15) rgb -> NAME .
+    (24) color -> PURPLE .
 
-  ! reduce/reduce conflict for NUMBER resolved using rule 15 (rgb -> NAME .)
-  ! reduce/reduce conflict for NAME resolved using rule 15 (rgb -> NAME .)
-    NUMBER          reduce using rule 15 (rgb -> NAME .)
-    NAME            reduce using rule 15 (rgb -> NAME .)
-
-  ! NUMBER          [ reduce using rule 25 (color -> NAME .) ]
-  ! NAME            [ reduce using rule 25 (color -> NAME .) ]
+    NUMBER          reduce using rule 24 (color -> PURPLE .)
+    NAME            reduce using rule 24 (color -> PURPLE .)
+    $end            reduce using rule 24 (color -> PURPLE .)
 
 
 state 25
 
-    (14) rgb -> LP . NUMBER COMA NUMBER COMA NUMBER RP
+    (25) color -> WHITE .
 
-    NUMBER          shift and go to state 38
+    NUMBER          reduce using rule 25 (color -> WHITE .)
+    NAME            reduce using rule 25 (color -> WHITE .)
+    $end            reduce using rule 25 (color -> WHITE .)
 
 
 state 26
 
-    (25) color -> NAME .
-    (15) rgb -> NAME .
-    (17) miliseconds -> NAME .
-    (31) animation -> NAME .
-    (13) button_pos -> NAME .
+    (26) color -> NAME .
+    (16) rgb -> NAME .
 
-  ! reduce/reduce conflict for $end resolved using rule 15 (rgb -> NAME .)
-  ! reduce/reduce conflict for $end resolved using rule 15 (rgb -> NAME .)
-  ! reduce/reduce conflict for $end resolved using rule 15 (rgb -> NAME .)
-  ! reduce/reduce conflict for $end resolved using rule 13 (button_pos -> NAME .)
-    $end            reduce using rule 13 (button_pos -> NAME .)
+  ! reduce/reduce conflict for NUMBER resolved using rule 16 (rgb -> NAME .)
+  ! reduce/reduce conflict for NAME resolved using rule 16 (rgb -> NAME .)
+    NUMBER          reduce using rule 16 (rgb -> NAME .)
+    NAME            reduce using rule 16 (rgb -> NAME .)
 
-  ! $end            [ reduce using rule 25 (color -> NAME .) ]
-  ! $end            [ reduce using rule 15 (rgb -> NAME .) ]
-  ! $end            [ reduce using rule 17 (miliseconds -> NAME .) ]
-  ! $end            [ reduce using rule 31 (animation -> NAME .) ]
+  ! NUMBER          [ reduce using rule 26 (color -> NAME .) ]
+  ! NAME            [ reduce using rule 26 (color -> NAME .) ]
 
 
 state 27
 
-    (4) var_assign -> NAME EQUALS color .
+    (15) rgb -> LP . NUMBER COMA NUMBER COMA NUMBER RP
 
-    $end            reduce using rule 4 (var_assign -> NAME EQUALS color .)
+    NUMBER          shift and go to state 41
 
 
 state 28
 
-    (5) var_assign -> NAME EQUALS rgb .
+    (26) color -> NAME .
+    (16) rgb -> NAME .
+    (18) miliseconds -> NAME .
+    (32) animation -> NAME .
+    (14) button_pos -> NAME .
 
-    $end            reduce using rule 5 (var_assign -> NAME EQUALS rgb .)
+  ! reduce/reduce conflict for $end resolved using rule 16 (rgb -> NAME .)
+  ! reduce/reduce conflict for $end resolved using rule 16 (rgb -> NAME .)
+  ! reduce/reduce conflict for $end resolved using rule 16 (rgb -> NAME .)
+  ! reduce/reduce conflict for $end resolved using rule 14 (button_pos -> NAME .)
+    $end            reduce using rule 14 (button_pos -> NAME .)
+
+  ! $end            [ reduce using rule 26 (color -> NAME .) ]
+  ! $end            [ reduce using rule 16 (rgb -> NAME .) ]
+  ! $end            [ reduce using rule 18 (miliseconds -> NAME .) ]
+  ! $end            [ reduce using rule 32 (animation -> NAME .) ]
 
 
 state 29
 
-    (6) var_assign -> NAME EQUALS miliseconds .
+    (5) var_assign -> NAME EQUALS color .
 
-    $end            reduce using rule 6 (var_assign -> NAME EQUALS miliseconds .)
+    $end            reduce using rule 5 (var_assign -> NAME EQUALS color .)
 
 
 state 30
 
-    (7) var_assign -> NAME EQUALS animation .
+    (6) var_assign -> NAME EQUALS rgb .
 
-    $end            reduce using rule 7 (var_assign -> NAME EQUALS animation .)
+    $end            reduce using rule 6 (var_assign -> NAME EQUALS rgb .)
 
 
 state 31
 
-    (8) var_assign -> NAME EQUALS button_pos .
+    (7) var_assign -> NAME EQUALS miliseconds .
 
-    $end            reduce using rule 8 (var_assign -> NAME EQUALS button_pos .)
+    $end            reduce using rule 7 (var_assign -> NAME EQUALS miliseconds .)
 
 
 state 32
 
-    (16) miliseconds -> NUMBER .
+    (8) var_assign -> NAME EQUALS animation .
 
-    $end            reduce using rule 16 (miliseconds -> NUMBER .)
+    $end            reduce using rule 8 (var_assign -> NAME EQUALS animation .)
 
 
 state 33
 
-    (11) button_pos -> BUTTON_UP .
+    (9) var_assign -> NAME EQUALS button_pos .
 
-    $end            reduce using rule 11 (button_pos -> BUTTON_UP .)
+    $end            reduce using rule 9 (var_assign -> NAME EQUALS button_pos .)
 
 
 state 34
 
-    (12) button_pos -> BUTTON_DOWN .
+    (17) miliseconds -> NUMBER .
 
-    $end            reduce using rule 12 (button_pos -> BUTTON_DOWN .)
+    $end            reduce using rule 17 (miliseconds -> NUMBER .)
+    NEW_LINE        reduce using rule 17 (miliseconds -> NUMBER .)
 
 
 state 35
 
-    (9) command -> ANIMATE animation color miliseconds .
+    (12) button_pos -> BUTTON_UP .
 
-    $end            reduce using rule 9 (command -> ANIMATE animation color miliseconds .)
+    $end            reduce using rule 12 (button_pos -> BUTTON_UP .)
 
 
 state 36
 
-    (17) miliseconds -> NAME .
+    (13) button_pos -> BUTTON_DOWN .
 
-    $end            reduce using rule 17 (miliseconds -> NAME .)
+    $end            reduce using rule 13 (button_pos -> BUTTON_DOWN .)
 
 
 state 37
 
-    (10) command -> ANIMATE animation rgb miliseconds .
+    (2) execute -> command NEW_LINE command NEW_LINE .
 
-    $end            reduce using rule 10 (command -> ANIMATE animation rgb miliseconds .)
+    $end            reduce using rule 2 (execute -> command NEW_LINE command NEW_LINE .)
 
 
 state 38
 
-    (14) rgb -> LP NUMBER . COMA NUMBER COMA NUMBER RP
+    (10) command -> ANIMATE animation color miliseconds .
 
-    COMA            shift and go to state 39
+    NEW_LINE        reduce using rule 10 (command -> ANIMATE animation color miliseconds .)
 
 
 state 39
 
-    (14) rgb -> LP NUMBER COMA . NUMBER COMA NUMBER RP
+    (18) miliseconds -> NAME .
 
-    NUMBER          shift and go to state 40
+    NEW_LINE        reduce using rule 18 (miliseconds -> NAME .)
 
 
 state 40
 
-    (14) rgb -> LP NUMBER COMA NUMBER . COMA NUMBER RP
+    (11) command -> ANIMATE animation rgb miliseconds .
 
-    COMA            shift and go to state 41
+    NEW_LINE        reduce using rule 11 (command -> ANIMATE animation rgb miliseconds .)
 
 
 state 41
 
-    (14) rgb -> LP NUMBER COMA NUMBER COMA . NUMBER RP
+    (15) rgb -> LP NUMBER . COMA NUMBER COMA NUMBER RP
 
-    NUMBER          shift and go to state 42
+    COMA            shift and go to state 42
 
 
 state 42
 
-    (14) rgb -> LP NUMBER COMA NUMBER COMA NUMBER . RP
+    (15) rgb -> LP NUMBER COMA . NUMBER COMA NUMBER RP
 
-    RP              shift and go to state 43
+    NUMBER          shift and go to state 43
 
 
 state 43
 
-    (14) rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .
+    (15) rgb -> LP NUMBER COMA NUMBER . COMA NUMBER RP
 
-    NUMBER          reduce using rule 14 (rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .)
-    NAME            reduce using rule 14 (rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .)
-    $end            reduce using rule 14 (rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .)
+    COMA            shift and go to state 44
+
+
+state 44
+
+    (15) rgb -> LP NUMBER COMA NUMBER COMA . NUMBER RP
+
+    NUMBER          shift and go to state 45
+
+
+state 45
+
+    (15) rgb -> LP NUMBER COMA NUMBER COMA NUMBER . RP
+
+    RP              shift and go to state 46
+
+
+state 46
+
+    (15) rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .
+
+    NUMBER          reduce using rule 15 (rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .)
+    NAME            reduce using rule 15 (rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .)
+    $end            reduce using rule 15 (rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: reduce/reduce conflict in state 24 resolved using rule (rgb -> NAME)
-WARNING: rejected rule (color -> NAME) in state 24
 WARNING: reduce/reduce conflict in state 26 resolved using rule (rgb -> NAME)
 WARNING: rejected rule (color -> NAME) in state 26
-WARNING: reduce/reduce conflict in state 26 resolved using rule (rgb -> NAME)
-WARNING: rejected rule (miliseconds -> NAME) in state 26
-WARNING: reduce/reduce conflict in state 26 resolved using rule (rgb -> NAME)
-WARNING: rejected rule (animation -> NAME) in state 26
-WARNING: reduce/reduce conflict in state 26 resolved using rule (button_pos -> NAME)
-WARNING: rejected rule (rgb -> NAME) in state 26
+WARNING: reduce/reduce conflict in state 28 resolved using rule (rgb -> NAME)
+WARNING: rejected rule (color -> NAME) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (rgb -> NAME)
+WARNING: rejected rule (miliseconds -> NAME) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (rgb -> NAME)
+WARNING: rejected rule (animation -> NAME) in state 28
+WARNING: reduce/reduce conflict in state 28 resolved using rule (button_pos -> NAME)
+WARNING: rejected rule (rgb -> NAME) in state 28
 WARNING: Rule (color -> NAME) is never reduced
