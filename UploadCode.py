@@ -1,6 +1,7 @@
 from pathlib import Path
 from subprocess import call
 import os
+
 def upload():
     path = 'home/ubuntu/sketchbook/'
 
@@ -33,7 +34,7 @@ def upload():
 
     if not filePath2.is_file():
         call('touch', 'Makefile')
-        file2 = open('UploadTest/MakeFile', 'r')
+        file2 = open('UploadTest/Makefile', 'r')
         body2 = file2.read()
         newFile2 = open(path + 'Makefile', 'w')
         newFile2.write(body2)
