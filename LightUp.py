@@ -192,7 +192,8 @@ def p_button_pos_var(p):
     '''
     button_pos : NAME
     '''
-    p[0] = ('var', p[1])
+    p[0] = p[1]
+    # p[0] = ('var', p[1])
 
 def p_rgb(p):
   'rgb : LP NUMBER COMA NUMBER COMA NUMBER RP'
@@ -202,7 +203,8 @@ def p_rgb_var(p):
     '''
     rgb : NAME
     '''
-    p[0] = ('var', p[1])
+    p[0] = p[1]
+    # p[0] = ('var', p[1])
 
 def p_miliseconds(p):
     '''
@@ -214,7 +216,8 @@ def p_miliseconds_var(p):
     '''
     miliseconds : NAME
     '''
-    p[0] = ('var', p[1])
+    p[0] = p[1]
+    # p[0] = ('var', p[1])
 
 def p_color(p):
   '''
@@ -232,7 +235,8 @@ def p_color_var(p):
     '''
     color : NAME
     '''
-    p[0] = ('var', p[1])
+    p[0] = p[1]
+    # p[0] = ('var', p[1])
 
 def p_animation(p):
   '''
@@ -248,7 +252,8 @@ def p_animation_var(p):
     '''
     animation : NAME
     '''
-    p[0] = ('var', p[1])
+    p[0] = p[1]
+    # p[0] = ('var', p[1])
 
 def p_empty(p):
     '''
@@ -369,8 +374,8 @@ defaultCode = "#include <Adafruit_NeoPixel.h> \n" \
               "} \n" \
               "}"
 
-filePath = "test.ino"
-test = open(filePath, 'w')
-test.write(defaultCode)
-test.close()
+# filePath = "test.ino"
+# test = open(filePath, 'w')
+# test.write(defaultCode)
+# test.close()
 

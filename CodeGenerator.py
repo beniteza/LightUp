@@ -1,11 +1,11 @@
-arduinoCode = ""
+arduinoCode = []
 variables = {}
 
 def createVariable(command):
     variables[command[1]] = command[2]
-    # print("New variable name: " + command[1])
-    # print("Variable value: " + variables[command[1]])
-    # print("Current variables:")
+    print("New variable name: " + command[1])
+    print("Variable value: " + variables[command[1]])
+    print("Current variables:")
     print(variables)
 
 def animate(command):
@@ -41,12 +41,12 @@ def animate(command):
     else:
         time = variables[command[3]]
 
-    # print("Animation: " + animation)
-    # print("Color: " + color)
-    # print("ColorRGB: ")
-    # print(colorRGB)
-    # print("Time: ")
-    # print(time)
+    print("Animation: " + animation)
+    print("Color: " + color)
+    print("ColorRGB: ")
+    print(colorRGB)
+    print("Time: ")
+    print(time)
 
     #Step 3: Animation code
     if animation == "RAINBOW":
@@ -57,8 +57,8 @@ def animate(command):
         createTheaterChaseRainbowAnimation(colorRGB, time)
     elif animation == "COLOR_WIPE":
         colorRGB = returnRGB(color)
-        # print("The RGB is: ")
-        # print(colorRGB)
+        print("The RGB is: ")
+        print(colorRGB)
         createColorWipeAnimation(colorRGB, time)
     elif animation == "THEATER_CHASE":
         colorRGB = returnRGB(color)
@@ -70,22 +70,23 @@ def animate(command):
 #Pass rgb tuple for wheel creation and time delay
 def createRainbowAnimation(colorRGB, time):
     pass
+
 def createRainbowCycleAnimation(colorRGB, time):
     pass
+
 def createTheaterChaseRainbowAnimation(colorRGB, time):
     pass
+
 #Pass color to be used and time delay
 def createColorWipeAnimation(colorRGB, time):
     pass
+
 def createTheaterChaseAnimation(colorRGB, time):
     pass
 
 def createColorWheel(colorRGB):
     pass
 
-#Generates the default Arduino code
-def createInitialCode():
-    pass
 
 def returnRGB(color):
     if color == 'RED':
@@ -102,3 +103,55 @@ def returnRGB(color):
         return (128, 0, 128)
     if color == 'WHITE':
         return (255, 255, 255)
+
+#Generates the default Arduino code
+def createInitialCode():
+    defaultCode = "#include <Adafruit_NeoPixel.h> \n" \
+"#ifdef __AVR__ \n" \
+"  #include <avr/power.h> \n" \
+"#endif \n" \
+                  " \n" \
+"#define PIN 6 \n" \
+                  "    \n" \
+"Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800); \n" \
+                  "   \n" \
+"void setup() { \n" \
+                  "  #if defined (__AVR_ATtiny85__) \n" \
+                  "    if (F_CPU == 16000000) clock_prescale_set(clock_div_1); \n" \
+                  "  #endif \n" \
+                  "  // End of trinket special code \n" \
+"\n" \
+                  "  strip.begin(); \n" \
+                  "  strip.show(); // Initialize all pixels to 'off' \n" \
+"} \n" \
+"\n" \
+"// Fill the dots one after the other with a color \n" \
+"void colorWipe(uint32_t c, uint8_t wait) { \n" \
+                  "  for(uint16_t i=0; i<strip.numPixels(); i++) { \n" \
+                  "   strip.setPixelColor(i, c); \n" \
+                  "    strip.show(); \n" \
+                  "    delay(wait); \n" \
+                  "  } \n" \
+"} \n" \
+                  "           \n" \
+"void theaterChase(uint32_t c, uint8_t wait) { \n" \
+                  "  for (int j=0; j<10; j++) {  //do 10 cycles of chasing \n" \
+                  "    for (int q=0; q < 3; q++) { \n" \
+                  "      for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
+                  "        strip.setPixelColor(i+q, c); \n" \
+                  "      } \n" \
+                  "      strip.show(); \n" \
+                  "            \n" \
+                  "      delay(wait); \n" \
+                  "            \n" \
+                  "      for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
+                  "        strip.setPixelColor(i+q, 0); \n" \
+                  "     } \n" \
+                  "    } \n" \
+                  "  } \n" \
+"}"
+    arduinoCode.append(defaultCode)
+    # filePath = "test.ino"
+    # test = open(filePath, 'w')
+    # test.write(defaultCode)
+    # test.close()
