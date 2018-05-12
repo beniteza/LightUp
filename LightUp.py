@@ -3,6 +3,7 @@ import ply.yacc as yacc
 import sys
 import os
 import subprocess
+import CodeGenerator as generate
 
 ######################### LEXER #########################
 
@@ -164,6 +165,7 @@ def p_var_assign(p):
                | NAME EQUALS button_pos
     '''
     p[0] = ('=', p[1], p[3])
+    generate.createVariable(p[0])
 
 # def p_command_recursive(p):
 #     '''
@@ -177,6 +179,7 @@ def p_command(p):
             | ANIMATE animation rgb miliseconds
     '''
     p[0] = (p[1], p[2], p[3], p[4])
+    generate.animate(p[0])
 
 def p_button_pos(p):
     '''
