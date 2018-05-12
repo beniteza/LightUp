@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="75227ebc-19d9-47d1-b5fa-dd72a852b353" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/UploadCode.py" afterPath="$PROJECT_DIR$/UploadCode.py" />
-      <change beforePath="$PROJECT_DIR$/UploadTest/MakeFile" afterPath="$PROJECT_DIR$/UploadTest/Makefile" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="UploadCode.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UploadCode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="875">
+              <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -257,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526156515007</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Upload Finished?">
+      <created>1526156847429</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1526156847429</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -522,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UploadCode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="875">
+          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
