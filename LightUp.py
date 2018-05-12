@@ -35,12 +35,12 @@ t_RP = r'\)'
 t_COMA = r'\,'
 t_EQUALS = r'\='
 # t_ignore = ' '
-t_ignore = ' \t'
+t_ignore = ' \t\n'
 
-def t_NEW_LINE(t):
-    r'\n'
-    t.value = 'NEW_LINE'
-    return t
+# def t_NEW_LINE(t):
+#     r'\n'
+#     t.value = 'NEW_LINE'
+#     return t
 
 def t_BUTTON_UP(t):
     r'BUTTON_UP'
@@ -148,13 +148,11 @@ precedence = (
 
 def p_execute(p):
     '''
-    execute : command NEW_LINE
-            | command NEW_LINE command NEW_LINE
+    execute : command
             | var_assign
             | empty
     '''
     print(p[1])
-    print(p[3])
     # print(run(p[1]))
 
 def p_var_assign(p):
@@ -169,9 +167,9 @@ def p_var_assign(p):
 
 # def p_command_recursive(p):
 #     '''
-#     command: command NEW_LINE command
+#     command : command command
+#             | empty
 #     '''
-#     p[0] = ('NEW_LINE', p[1], p[3])
 
 def p_command(p):
     '''
@@ -291,9 +289,16 @@ def translateCode(p):
         print("Error opening file")
         exit()
 
-    fileText = LightUpSource.read()
+    # fileText = LightUpSource.read()
+    #
+    # parser.parse(fileText)
 
-    parser.parse(fileText)
+    for line in LightUpSource:
+        try:
+            parser.parse(line)
+        except IOError:
+            print("Error opening file")
+            exit()
 
 file = 'LightUpCode.txt'
 translateCode(file)
