@@ -1,6 +1,6 @@
 from pathlib import Path
 from subprocess import call
-
+import os
 def upload():
     path = 'home/ubuntu/sketchbook/'
 
