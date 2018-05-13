@@ -278,7 +278,7 @@ def upload():
     finalCode += "}"
 
     #Create arduino file
-    filePath = "arduinoCode/arduinoCode.ino"
+    filePath = "ArduinoFiles/arduinoCode.ino"
     arduinoCode = open(filePath, 'w')
     arduinoCode.write(finalCode)
     arduinoCode.close()

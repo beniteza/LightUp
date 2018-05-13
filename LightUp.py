@@ -189,8 +189,8 @@ def p_command(p):
             | END
     '''
     if p[1] == 'START':
-        if os.path.isfile("arduinoCode/arduinoCode.ino"):
-            os.remove("arduinoCode/arduinoCode.ino")
+        if os.path.isfile("ArduinoFiles/arduinoCode.ino"):
+            os.remove("ArduinoFiles/arduinoCode.ino")
     elif p[1] == 'END':
         generate.upload()
     else:
@@ -328,7 +328,7 @@ def translateCode(p):
         try:
             parser.parse(line)
         except IOError:
-            print("Error opening file")
+            print("Error opening file!")
             exit()
 
 file = 'LightUpCode.txt'
