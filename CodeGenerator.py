@@ -1,5 +1,8 @@
 arduinoCode = []
 variables = {}
+wheels = []
+animations = []
+
 
 def createVariable(command):
     variables[command[1]] = command[2]
@@ -8,34 +11,35 @@ def createVariable(command):
     print("Current variables:")
     print(variables)
 
+
 def animate(command):
-    #Step 1: Default code
+    # Step 1: Default code
     createInitialCode()
 
-    #Step 2: Check for variables
+    # Step 2: Check for variables
     animation = ""
     color = ""
     colorRGB = ()
     time = 0
 
-    #a) Animation
+    # a) Animation
     if command[1] not in variables:
         animation = command[1]
     else:
         animation = variables[command[1]]
 
-    #b) Color
+    # b) Color
     if command[2] not in variables:
         if isinstance(command[2], tuple):
             colorRGB = command[2]
         else:
             color = command[2]
     elif isinstance(variables[command[2]], tuple):
-            colorRGB = variables[command[2]]
+        colorRGB = variables[command[2]]
     else:
         color = variables[command[2]]
 
-    #c) Time
+    # c) Time
     if command[3] not in variables:
         time = command[3]
     else:
@@ -48,7 +52,7 @@ def animate(command):
     print("Time: ")
     print(time)
 
-    #Step 3: Animation code
+    # Step 3: Animation code
     if animation == "RAINBOW":
         createRainbowAnimation(colorRGB, time)
     elif animation == "RAINBOW_CYCLE":
@@ -67,25 +71,53 @@ def animate(command):
         createColorWipeAnimation(colorRGB, time)
 
 
-#Pass rgb tuple for wheel creation and time delay
+# Pass rgb tuple for wheel creation and time delay
+#Missing definition code
 def createRainbowAnimation(colorRGB, time):
-    pass
+    createColorWheel(colorRGB)
+    arduinoLine = "rainbow(" + time + ")\n"
+    animations.append(arduinoLine)
 
+#Missing definition code
 def createRainbowCycleAnimation(colorRGB, time):
-    pass
+    createColorWheel(colorRGB)
+    arduinoLine = "rainbowCycle(" + time + ")\n"
+    animations.append(arduinoLine)
 
+#Missing definition code
 def createTheaterChaseRainbowAnimation(colorRGB, time):
-    pass
+    createColorWheel(colorRGB)
+    arduinoLine = "theaterChaseRainbow(" + time + ")\n"
+    animations.append(arduinoLine)
 
-#Pass color to be used and time delay
+
+# Pass color to be used and time delay
 def createColorWipeAnimation(colorRGB, time):
-    pass
+    arduinoLine = "colorWipe(" + colorRGB + ", " + time + ")\n"
+    animations.append(arduinoLine)
+
 
 def createTheaterChaseAnimation(colorRGB, time):
-    pass
+    arduinoLine = "theaterChase(" + colorRGB + ", " + time + ")\n"
+    animations.append(arduinoLine)
 
+
+#Work in progress
 def createColorWheel(colorRGB):
-    pass
+    arduinoBlock = "uint32_t Wheel(byte WheelPos) {\n" \
+                   "   WheelPos = 255 - WheelPos;\n" \
+                   "   if (WheelPos < 85)\n" \
+                   "       {\n" \
+                   "       return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);\n" \
+                   "       }" \
+                   "   if (WheelPos < 170) {\n" \
+                   "       WheelPos -= 85;\n" \
+                   "       return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);\n" \
+                   "   }\n" \
+                   "   WheelPos -= 170;\n" \
+                   "   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);\n" \
+                   "}"
+    wheels.append(arduinoBlock)
 
 
 def returnRGB(color):
@@ -104,37 +136,38 @@ def returnRGB(color):
     if color == 'WHITE':
         return (255, 255, 255)
 
-#Generates the default Arduino code
+
+# Generates the default Arduino code
 def createInitialCode():
     defaultCode = "#include <Adafruit_NeoPixel.h> \n" \
-"#ifdef __AVR__ \n" \
-"  #include <avr/power.h> \n" \
-"#endif \n" \
+                  "#ifdef __AVR__ \n" \
+                  "  #include <avr/power.h> \n" \
+                  "#endif \n" \
                   " \n" \
-"#define PIN 6 \n" \
+                  "#define PIN 6 \n" \
                   "    \n" \
-"Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800); \n" \
+                  "Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800); \n" \
                   "   \n" \
-"void setup() { \n" \
+                  "void setup() { \n" \
                   "  #if defined (__AVR_ATtiny85__) \n" \
                   "    if (F_CPU == 16000000) clock_prescale_set(clock_div_1); \n" \
                   "  #endif \n" \
                   "  // End of trinket special code \n" \
-"\n" \
+                  "\n" \
                   "  strip.begin(); \n" \
                   "  strip.show(); // Initialize all pixels to 'off' \n" \
-"} \n" \
-"\n" \
-"// Fill the dots one after the other with a color \n" \
-"void colorWipe(uint32_t c, uint8_t wait) { \n" \
+                  "} \n" \
+                  "\n" \
+                  "// Fill the dots one after the other with a color \n" \
+                  "void colorWipe(uint32_t c, uint8_t wait) { \n" \
                   "  for(uint16_t i=0; i<strip.numPixels(); i++) { \n" \
                   "   strip.setPixelColor(i, c); \n" \
                   "    strip.show(); \n" \
                   "    delay(wait); \n" \
                   "  } \n" \
-"} \n" \
+                  "} \n" \
                   "           \n" \
-"void theaterChase(uint32_t c, uint8_t wait) { \n" \
+                  "void theaterChase(uint32_t c, uint8_t wait) { \n" \
                   "  for (int j=0; j<10; j++) {  //do 10 cycles of chasing \n" \
                   "    for (int q=0; q < 3; q++) { \n" \
                   "      for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
@@ -149,7 +182,7 @@ def createInitialCode():
                   "     } \n" \
                   "    } \n" \
                   "  } \n" \
-"}"
+                  "}"
     arduinoCode.append(defaultCode)
     # filePath = "test.ino"
     # test = open(filePath, 'w')
