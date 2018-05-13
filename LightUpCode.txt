@@ -1,8 +1,5 @@
 START
 poop = BLUE
-mili = 50000
+mili = 5000
 ANIMATE COLOR_WIPE poop mili
-mayo = BLUE
-gay = RAINBOW
-ANIMATE gay mayo 3000
 END
