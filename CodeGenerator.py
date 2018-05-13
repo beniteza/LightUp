@@ -1,14 +1,17 @@
-arduinoCode = []
+initialCode = []
 variables = {}
 wheels = []
-animations = []
+rainbows = []
+rainbowCycles = []
+theaterChaseRainbows = []
+loop = []
 
 
 def createVariable(command):
     variables[command[1]] = command[2]
-    print("New variable name: " + command[1])
-    print("Variable value: " + variables[command[1]])
-    print("Current variables:")
+    # print("New variable name: " + command[1])
+    # print("Variable value: " + variables[command[1]])
+    # print("Current variables:")
     print(variables)
 
 
@@ -45,24 +48,30 @@ def animate(command):
     else:
         time = variables[command[3]]
 
-    print("Animation: " + animation)
-    print("Color: " + color)
-    print("ColorRGB: ")
-    print(colorRGB)
-    print("Time: ")
-    print(time)
+    # print("Animation: " + animation)
+    # print("Color: " + color)
+    # print("ColorRGB: ")
+    # print(colorRGB)
+    # print("Time: ")
+    # print(time)
 
     # Step 3: Animation code
     if animation == "RAINBOW":
+        if color != "":
+            colorRGB = returnRGB(color)
         createRainbowAnimation(colorRGB, time)
     elif animation == "RAINBOW_CYCLE":
+        if color != "":
+            colorRGB = returnRGB(color)
         createRainbowCycleAnimation(colorRGB, time)
     elif animation == "THEATER_CHASE_RAINBOW":
+        if color != "":
+            colorRGB = returnRGB(color)
         createTheaterChaseRainbowAnimation(colorRGB, time)
     elif animation == "COLOR_WIPE":
         colorRGB = returnRGB(color)
-        print("The RGB is: ")
-        print(colorRGB)
+        # print("The RGB is: ")
+        # print(colorRGB)
         createColorWipeAnimation(colorRGB, time)
     elif animation == "THEATER_CHASE":
         colorRGB = returnRGB(color)
@@ -74,50 +83,103 @@ def animate(command):
 # Pass rgb tuple for wheel creation and time delay
 #Missing definition code
 def createRainbowAnimation(colorRGB, time):
-    createColorWheel(colorRGB)
-    arduinoLine = "rainbow(" + time + ")\n"
-    animations.append(arduinoLine)
+    wheelNumber = createColorWheel(colorRGB)
+    #Animation method
+    rainbowNumber = len(rainbows) + 1
+    arduinoBlock = "void rainbow_"+ str(rainbowNumber) + "(uint8_t wait) {\n" \
+                    "uint16_t i, j;\n" \
+                    "\n" \
+                    "for(j=0; j<256; j++) {\n" \
+                    "for(i=0; i<strip.numPixels(); i++) {\n" \
+                    "strip.setPixelColor(i, Wheel_"+ str(wheelNumber) + "((i+j) & 255));\n" \
+                    "}\n" \
+                    "strip.show();\n" \
+                    "delay(wait);\n" \
+                    "}\n" \
+                    "}\n"
+
+    rainbows.append(arduinoBlock)
+    # Call the animation on the loop method
+    arduinoLine = "  rainbow(" + time + ");\n"
+    loop.append(arduinoLine)
 
 #Missing definition code
 def createRainbowCycleAnimation(colorRGB, time):
-    createColorWheel(colorRGB)
-    arduinoLine = "rainbowCycle(" + time + ")\n"
-    animations.append(arduinoLine)
+    wheelNumber = createColorWheel(colorRGB)
+    #Animation method
+    rainbowCycleNumber = len(rainbowCycles) + 1
+    arduinoBlock = "void rainbowCycle_"+ str(rainbowCycleNumber) + "(uint8_t wait) {\n" \
+                    "uint16_t i, j;\n" \
+                    "\n" \
+                    "for(j=0; j<256*5; j++) {\n" \
+                    "for(i=0; i<strip.numPixels(); i++) {\n" \
+                    "strip.setPixelColor(i, Wheel_"+ str(wheelNumber) + "(((i * 256 / strip.numPixels()) + j) & 255));\n" \
+                    "}\n" \
+                    "strip.show();\n" \
+                    "delay(wait);\n" \
+                    "}\n" \
+                    "}\n"
+
+
+    # Call the animation on the loop method
+    arduinoLine = "  rainbowCycle(" + time + ");\n"
+    loop.append(arduinoLine)
 
 #Missing definition code
 def createTheaterChaseRainbowAnimation(colorRGB, time):
-    createColorWheel(colorRGB)
-    arduinoLine = "theaterChaseRainbow(" + time + ")\n"
-    animations.append(arduinoLine)
+    wheelNumber = createColorWheel(colorRGB)
+    #Animation method
+    theaterCRainbowNumber = len(theaterChaseRainbows) + 1
+    arduinoBlock = "void theaterChaseRainbow_"+ str(theaterCRainbowNumber) + "(uint8_t wait) {\n" \
+                    "for (int j=0; j < 256; j++) {\n" \
+                    "for (int q=0; q < 3; q++) {\n" \
+                    "for (uint16_t i=0; i < strip.numPixels(); i=i+3) {\n" \
+                    "strip.setPixelColor(i+q, Wheel_"+ str(wheelNumber) + "( (i+j) % 255));\n" \
+                    "}\n" \
+                    "strip.show();\n" \
+                    "\n" \
+                    "delay(wait);\n" \
+                    "\n" \
+                    "for (uint16_t i=0; i < strip.numPixels(); i=i+3) {\n" \
+                    "strip.setPixelColor(i+q, 0);\n" \
+                    "}\n" \
+                    "}\n" \
+                    "}\n" \
+
+    #Call the animation on the loop method
+    arduinoLine = "  theaterChaseRainbow(" + time + ");\n"
+    loop.append(arduinoLine)
 
 
 # Pass color to be used and time delay
 def createColorWipeAnimation(colorRGB, time):
-    arduinoLine = "colorWipe(" + colorRGB + ", " + time + ")\n"
-    animations.append(arduinoLine)
+    arduinoLine = "  colorWipe(strip.Color(" + str(colorRGB[0]) + "," + str(colorRGB[1]) + ", " + str(colorRGB[2]) + "), " + time + ");\n"
+    loop.append(arduinoLine)
 
 
 def createTheaterChaseAnimation(colorRGB, time):
-    arduinoLine = "theaterChase(" + colorRGB + ", " + time + ")\n"
-    animations.append(arduinoLine)
+    arduinoLine = "  theaterChase(strip.Color(" + str(colorRGB[0]) + "," + str(colorRGB[1]) + ", " + str(colorRGB[2]) + "), " + time + ");\n"
+    loop.append(arduinoLine)
 
 
 #Work in progress
 def createColorWheel(colorRGB):
-    arduinoBlock = "uint32_t Wheel(byte WheelPos) {\n" \
+    wheelNumber = len(wheels) + 1
+    arduinoBlock = "uint32_t Wheel_" + str(wheelNumber) + "(byte WheelPos) {\n" \
                    "   WheelPos = 255 - WheelPos;\n" \
                    "   if (WheelPos < 85)\n" \
                    "       {\n" \
-                   "       return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);\n" \
+                   "       return strip.Color(" + str(colorRGB[0]) + "- WheelPos * 3, 0, WheelPos * 3);\n" \
                    "       }" \
                    "   if (WheelPos < 170) {\n" \
                    "       WheelPos -= 85;\n" \
-                   "       return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);\n" \
+                   "       return strip.Color(0, WheelPos * 3, " + str(colorRGB[2]) + " - WheelPos * 3);\n" \
                    "   }\n" \
                    "   WheelPos -= 170;\n" \
-                   "   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);\n" \
-                   "}"
+                   "   return strip.Color(WheelPos * 3, " + str(colorRGB[1]) + " - WheelPos * 3, 0);\n" \
+                   "}\n"
     wheels.append(arduinoBlock)
+    return wheelNumber
 
 
 def returnRGB(color):
@@ -182,9 +244,41 @@ def createInitialCode():
                   "     } \n" \
                   "    } \n" \
                   "  } \n" \
-                  "}"
-    arduinoCode.append(defaultCode)
-    # filePath = "test.ino"
-    # test = open(filePath, 'w')
-    # test.write(defaultCode)
-    # test.close()
+                  "}\n"
+
+    initialCode.append(defaultCode)
+
+#Creates the final code to be used and uploads it to the arduino
+def upload():
+    finalCode = initialCode[0]
+
+    #Adds the wheel(s)
+    for w in wheels:
+        finalCode += w
+
+    #Adds the animation methods
+    #a. rainbow
+    for r in rainbows:
+        finalCode += r
+
+    #b. rainbow cycle
+    for rc in rainbowCycles:
+        finalCode += rc
+
+    #c. theater chase rainbow
+    for tcr in theaterChaseRainbows:
+        finalCode += tcr
+
+    #Adds lines for the loop method
+    finalCode += "void loop() {\n"
+
+    for line in loop:
+        finalCode += line
+
+    finalCode += "}"
+
+    #Create arduino file
+    filePath = "arduinoCode/arduinoCode.ino"
+    arduinoCode = open(filePath, 'w')
+    arduinoCode.write(finalCode)
+    arduinoCode.close()

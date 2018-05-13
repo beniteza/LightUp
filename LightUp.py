@@ -26,6 +26,8 @@ tokens = [
     'BUTTON_UP', 'BUTTON_DOWN',
     # Variable Name
     'NAME',
+    #Start and End
+    'START', 'END',
     #NEW LINE
     'NEW_LINE'
 ]
@@ -51,6 +53,16 @@ def t_BUTTON_UP(t):
 def t_BUTTON_DOWN(t):
     r'BUTTON_DOWN'
     t.value = 'BUTTON_DOWN'
+    return t
+
+def t_START(t):
+    r'START'
+    t.value = 'START'
+    return t
+
+def t_END(t):
+    r'END'
+    t.value = 'END'
     return t
 
 def t_RED(t):
@@ -133,7 +145,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
-# lexer.input("ANIMATE (RAINBOW YELLOW 50) \n =")
+# lexer.input("ANIMATE (RAINBOW YELLOW 50) END")
 #
 # while True:
 #     tok = lexer.token()
@@ -142,10 +154,6 @@ lexer = lex.lex()
 #     print(tok)
 
 ######################### Parser #########################
-
-precedence = (
-    ()
-)
 
 def p_execute(p):
     '''
@@ -177,9 +185,17 @@ def p_command(p):
     '''
     command : ANIMATE animation color miliseconds
             | ANIMATE animation rgb miliseconds
+            | START
+            | END
     '''
-    p[0] = (p[1], p[2], p[3], p[4])
-    generate.animate(p[0])
+    if p[1] == 'START':
+        if os.path.isfile("arduinoCode/arduinoCode.ino"):
+            os.remove("arduinoCode/arduinoCode.ino")
+    elif p[1] == 'END':
+        generate.upload()
+    else:
+        p[0] = (p[1], p[2], p[3], p[4])
+        generate.animate(p[0])
 
 def p_button_pos(p):
     '''
@@ -255,6 +271,13 @@ def p_animation_var(p):
     p[0] = p[1]
     # p[0] = ('var', p[1])
 
+# def p_start_end(p):
+#     '''
+#     start_end : START
+#               | END
+#     '''
+
+
 def p_empty(p):
     '''
     empty :
@@ -266,22 +289,22 @@ def p_error(p):
 
 parser = yacc.yacc()
 
-env = {}
-
-def run(p):
-    global env
-    if type(p) == tuple:
-        if p[0] == '=':
-            env[p[1]] = run(p[2])
-            print(env)
-        elif p[0] == 'var':
-            if p[1] not in env:
-                return 'Undeclared variable found!'
-            else:
-                return env[p[1]]
-        print(p)
-    else:
-        return p
+# env = {}
+#
+# def run(p):
+#     global env
+#     if type(p) == tuple:
+#         if p[0] == '=':
+#             env[p[1]] = run(p[2])
+#             print(env)
+#         elif p[0] == 'var':
+#             if p[1] not in env:
+#                 return 'Undeclared variable found!'
+#             else:
+#                 return env[p[1]]
+#         print(p)
+#     else:
+#         return p
 
 # while True:
 #     try:
@@ -320,62 +343,4 @@ translateCode(file)
 #
 # openArduino()
 
-######################### INTERMEDIATE CODE #########################
-arduinoCode = []
-
-defaultCode = "#include <Adafruit_NeoPixel.h> \n" \
-              "#ifdef __AVR__ \n" \
-              "#include <avr/power.h> \n" \
-              "#endif \n" \
-              "#define PIN 6 Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800); \n" \
-              "void setup() \n" \
-              "{ \n" \
-              "#if defined (__AVR_ATtiny85__) \n" \
-              "if (F_CPU == 16000000) clock_prescale_set(clock_div_1); \n" \
-              "#endif \n" \
-              "// End of trinket special code \n" \
-              "strip.begin(); \n" \
-              "strip.show(); \n" \
-              "// Initialize all pixels to 'off' \n" \
-              "} \n" \
-              "// Fill the dots one after the other with a color \n" \
-              "void colorWipe(uint32_t c, uint8_t wait) \n" \
-              "{ \n" \
-              "for(uint16_t i=0; i<strip.numPixels(); i++) { \n" \
-              "strip.setPixelColor(i, c); strip.show(); \n" \
-              "delay(wait); \n" \
-              "} \n" \
-              "} \n" \
-              "void rainbow(uint8_t wait) \n" \
-              "{ \n" \
-              "uint16_t i, j; \n" \
-              "for(j=0; j<256; j++) { \n" \
-              "for(i=0; i<strip.numPixels(); i++) { \n" \
-              "strip.setPixelColor(i, Wheel((i+j) & 255)); \n" \
-              "} \n" \
-              "strip.show(); \n" \
-              "delay(wait); \n" \
-              "} \n" \
-              "} \n" \
-              "void theaterChase(uint32_t c, uint8_t wait) \n" \
-              "{ \n" \
-              "for (int j=0; j<10; j++) { \n" \
-              "//do 10 cycles of chasing \n" \
-              "for (int q=0; q < 3; q++) { \n" \
-              "for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
-              "strip.setPixelColor(i+q, c); \n" \
-              "} \n" \
-              "strip.show(); \n" \
-              "delay(wait); \n" \
-              "for (uint16_t i=0; i < strip.numPixels(); i=i+3) { \n" \
-              "strip.setPixelColor(i+q, 0); \n" \
-              "} \n" \
-              "} \n" \
-              "} \n" \
-              "}"
-
-# filePath = "test.ino"
-# test = open(filePath, 'w')
-# test.write(defaultCode)
-# test.close()
 
