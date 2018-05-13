@@ -1,5 +1,1 @@
-START
-poop = BLUE
-mili = 5000
-ANIMATE COLOR_WIPE poop mili
-END
+me = RED

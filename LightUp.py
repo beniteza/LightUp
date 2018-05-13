@@ -174,6 +174,7 @@ def p_var_assign(p):
     '''
     p[0] = ('=', p[1], p[3])
     generate.createVariable(p[0])
+    generate.terminalUpload()
 
 # def p_command_recursive(p):
 #     '''
@@ -189,8 +190,8 @@ def p_command(p):
             | END
     '''
     if p[1] == 'START':
-        if os.path.isfile("ArduinoFiles/arduinoCode.ino"):
-            os.remove("ArduinoFiles/arduinoCode.ino")
+        if os.path.isfile("arduinoCode.ino"):
+            os.remove("arduinoCode.ino")
     elif p[1] == 'END':
         generate.upload()
     else:
