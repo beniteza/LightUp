@@ -15,7 +15,7 @@ tokens = [
     # #RGB Color
     # 'RGB',
     #Animation Type
-    'RAINBOW', 'RANDOW_CYCLE', 'THEATER_CHASE_RAINBOW', 'COLOR_WIPE', 'THEATER_CHASE',
+    'THEATER_CHASE_RAINBOW', 'RAINBOW', 'RAINBOW_CYCLE', 'COLOR_WIPE', 'THEATER_CHASE',
     #Number
     'NUMBER',
     #Parenthesis and coma
@@ -105,9 +105,9 @@ def t_RGB(t):
     t.value = 'RGB'
     return t
 
-def t_RAINBOW(t):
-    r'RAINBOW'
-    t.value = 'RAINBOW'
+def t_THEATER_CHASE_RAINBOW(t):
+    r'THEATER_CHASE_RAINBOW'
+    t.value = 'THEATER_CHASE_RAINBOW'
     return t
 
 def t_RAINBOW_CYCLE(t):
@@ -115,9 +115,9 @@ def t_RAINBOW_CYCLE(t):
     t.value = 'RAINBOW_CYCLE'
     return t
 
-def t_THEATER_CHASE_RAINBOW(t):
-    r'THEATER_CHASE_RAINBOW'
-    t.value = 'THEATER_CHASE_RAINBOW'
+def t_RAINBOW(t):
+    r'RAINBOW'
+    t.value = 'RAINBOW'
     return t
 
 def t_COLOR_WIPE(t):
@@ -174,7 +174,6 @@ def p_var_assign(p):
     '''
     p[0] = ('=', p[1], p[3])
     generate.createVariable(p[0])
-    generate.terminalUpload()
 
 # def p_command_recursive(p):
 #     '''
@@ -194,6 +193,7 @@ def p_command(p):
             os.remove("arduinoCode.ino")
     elif p[1] == 'END':
         generate.upload()
+        generate.terminalUpload()
     else:
         p[0] = (p[1], p[2], p[3], p[4])
         generate.animate(p[0])
@@ -258,7 +258,7 @@ def p_color_var(p):
 def p_animation(p):
   '''
   animation : RAINBOW
-            | RANDOW_CYCLE
+            | RAINBOW_CYCLE
             | THEATER_CHASE_RAINBOW
             | COLOR_WIPE
             | THEATER_CHASE

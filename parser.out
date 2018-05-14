@@ -35,7 +35,7 @@ Rule 25    color -> PURPLE
 Rule 26    color -> WHITE
 Rule 27    color -> NAME
 Rule 28    animation -> RAINBOW
-Rule 29    animation -> RANDOW_CYCLE
+Rule 29    animation -> RAINBOW_CYCLE
 Rule 30    animation -> THEATER_CHASE_RAINBOW
 Rule 31    animation -> COLOR_WIPE
 Rule 32    animation -> THEATER_CHASE
@@ -60,7 +60,7 @@ NUMBER               : 16 16 16 18
 ORANGE               : 24
 PURPLE               : 25
 RAINBOW              : 28
-RANDOW_CYCLE         : 29
+RAINBOW_CYCLE        : 29
 RED                  : 20
 RP                   : 16
 START                : 11
@@ -144,14 +144,14 @@ state 5
     (9) command -> ANIMATE . animation color miliseconds
     (10) command -> ANIMATE . animation rgb miliseconds
     (28) animation -> . RAINBOW
-    (29) animation -> . RANDOW_CYCLE
+    (29) animation -> . RAINBOW_CYCLE
     (30) animation -> . THEATER_CHASE_RAINBOW
     (31) animation -> . COLOR_WIPE
     (32) animation -> . THEATER_CHASE
     (33) animation -> . NAME
 
     RAINBOW         shift and go to state 10
-    RANDOW_CYCLE    shift and go to state 11
+    RAINBOW_CYCLE   shift and go to state 11
     THEATER_CHASE_RAINBOW shift and go to state 12
     COLOR_WIPE      shift and go to state 13
     THEATER_CHASE   shift and go to state 14
@@ -230,18 +230,18 @@ state 10
 
 state 11
 
-    (29) animation -> RANDOW_CYCLE .
+    (29) animation -> RAINBOW_CYCLE .
 
-    RED             reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    BLUE            reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    GREEN           reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    YELLOW          reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    ORANGE          reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    PURPLE          reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    WHITE           reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    NAME            reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    LP              reduce using rule 29 (animation -> RANDOW_CYCLE .)
-    $end            reduce using rule 29 (animation -> RANDOW_CYCLE .)
+    RED             reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    BLUE            reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    GREEN           reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    YELLOW          reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    ORANGE          reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    PURPLE          reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    WHITE           reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    NAME            reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    LP              reduce using rule 29 (animation -> RAINBOW_CYCLE .)
+    $end            reduce using rule 29 (animation -> RAINBOW_CYCLE .)
 
 
 state 12
@@ -327,7 +327,7 @@ state 16
     (18) miliseconds -> . NUMBER
     (19) miliseconds -> . NAME
     (28) animation -> . RAINBOW
-    (29) animation -> . RANDOW_CYCLE
+    (29) animation -> . RAINBOW_CYCLE
     (30) animation -> . THEATER_CHASE_RAINBOW
     (31) animation -> . COLOR_WIPE
     (32) animation -> . THEATER_CHASE
@@ -347,7 +347,7 @@ state 16
     LP              shift and go to state 27
     NUMBER          shift and go to state 34
     RAINBOW         shift and go to state 10
-    RANDOW_CYCLE    shift and go to state 11
+    RAINBOW_CYCLE   shift and go to state 11
     THEATER_CHASE_RAINBOW shift and go to state 12
     COLOR_WIPE      shift and go to state 13
     THEATER_CHASE   shift and go to state 14

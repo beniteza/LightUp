@@ -1,1 +1,5 @@
-me = RED
+START
+me = BLUE
+you = 1000
+ANIMATE RAINBOW_CYCLE me you
+END

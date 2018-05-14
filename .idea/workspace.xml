@@ -2,62 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75227ebc-19d9-47d1-b5fa-dd72a852b353" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/ArduinoFiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/arduinoCode.ino" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/ArduinoFiles.elf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/ArduinoFiles.hex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/ArduinoFiles.hex.sizeok" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/arduinoCode.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/arduinoCode.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/CDC.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/CDC.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/HID.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/HID.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/HardwareSerial.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/HardwareSerial.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/IPAddress.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/IPAddress.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/Print.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/Print.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/Stream.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/Stream.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/Tone.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/Tone.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/USBCore.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/USBCore.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/WInterrupts.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/WInterrupts.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/WMath.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/WMath.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/WString.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/WString.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/avr-libc/malloc.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/avr-libc/malloc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/avr-libc/realloc.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/avr-libc/realloc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/main.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/new.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/new.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_analog.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_analog.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_digital.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_digital.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_pulse.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_pulse.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_shift.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/core/wiring_shift.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/libcore.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/userlibs/Adafruit_NeoPixel/Adafruit_NeoPixel.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/userlibs/Adafruit_NeoPixel/Adafruit_NeoPixel.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/userlibs/Adafruit_NeoPixel/esp8266.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoFiles/build-mega2560/userlibs/Adafruit_NeoPixel/esp8266.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeGenerator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LightUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/LightUp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LightUpCode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LightUpCode.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blinky.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LightUp.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LightUp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LightUp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="193" column="23" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
+            <state relative-caret-position="170">
+              <caret line="260" column="19" selection-start-line="260" selection-start-column="19" selection-end-line="260" selection-end-column="19" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -80,11 +31,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodeGenerator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CodeGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+            <state relative-caret-position="116">
+              <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,12 +63,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LightUp.py" />
         <option value="$PROJECT_DIR$/CodeGenerator.py" />
+        <option value="$PROJECT_DIR$/LightUp.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -192,7 +146,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35843372" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41114458" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -220,13 +174,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CodeGenerator.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="17" />
+          <line>23</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CodeGenerator.py</url>
-          <line>65</line>
-          <option name="timeStamp" value="18" />
+          <line>70</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CodeGenerator.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -236,7 +195,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -254,6 +213,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4978">
           <caret line="262" lean-forward="true" selection-start-line="262" selection-end-line="262" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -541,20 +503,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LightUp.py">
+    <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="193" column="23" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
+        <state relative-caret-position="116">
+          <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
+    <entry file="file://$PROJECT_DIR$/LightUp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="170">
+          <caret line="260" column="19" selection-start-line="260" selection-start-column="19" selection-end-line="260" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

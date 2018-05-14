@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ANIMATE BLUE BUTTON_DOWN BUTTON_UP COLOR_WIPE COMA END EQUALS GREEN LP NAME NEW_LINE NUMBER ORANGE PURPLE RAINBOW RANDOW_CYCLE RED RP START THEATER_CHASE THEATER_CHASE_RAINBOW WHITE YELLOW\n    execute : command\n            | var_assign\n            | empty\n    \n    var_assign : NAME EQUALS color\n               | NAME EQUALS rgb\n               | NAME EQUALS miliseconds\n               | NAME EQUALS animation\n               | NAME EQUALS button_pos\n    \n    command : ANIMATE animation color miliseconds\n            | ANIMATE animation rgb miliseconds\n            | START\n            | END\n    \n    button_pos : BUTTON_UP\n               | BUTTON_DOWN\n    \n    button_pos : NAME\n    rgb : LP NUMBER COMA NUMBER COMA NUMBER RP\n    rgb : NAME\n    \n    miliseconds : NUMBER\n    \n    miliseconds : NAME\n    \n  color : RED\n        | BLUE\n        | GREEN\n        | YELLOW\n        | ORANGE\n        | PURPLE\n        | WHITE\n  \n    color : NAME\n    \n  animation : RAINBOW\n            | RANDOW_CYCLE\n            | THEATER_CHASE_RAINBOW\n            | COLOR_WIPE\n            | THEATER_CHASE\n  \n    animation : NAME\n    \n    empty :\n    '
+_lr_signature = 'ANIMATE BLUE BUTTON_DOWN BUTTON_UP COLOR_WIPE COMA END EQUALS GREEN LP NAME NEW_LINE NUMBER ORANGE PURPLE RAINBOW RAINBOW_CYCLE RED RP START THEATER_CHASE THEATER_CHASE_RAINBOW WHITE YELLOW\n    execute : command\n            | var_assign\n            | empty\n    \n    var_assign : NAME EQUALS color\n               | NAME EQUALS rgb\n               | NAME EQUALS miliseconds\n               | NAME EQUALS animation\n               | NAME EQUALS button_pos\n    \n    command : ANIMATE animation color miliseconds\n            | ANIMATE animation rgb miliseconds\n            | START\n            | END\n    \n    button_pos : BUTTON_UP\n               | BUTTON_DOWN\n    \n    button_pos : NAME\n    rgb : LP NUMBER COMA NUMBER COMA NUMBER RP\n    rgb : NAME\n    \n    miliseconds : NUMBER\n    \n    miliseconds : NAME\n    \n  color : RED\n        | BLUE\n        | GREEN\n        | YELLOW\n        | ORANGE\n        | PURPLE\n        | WHITE\n  \n    color : NAME\n    \n  animation : RAINBOW\n            | RAINBOW_CYCLE\n            | THEATER_CHASE_RAINBOW\n            | COLOR_WIPE\n            | THEATER_CHASE\n  \n    animation : NAME\n    \n    empty :\n    '
     
-_lr_action_items = {'ANIMATE':([0,],[5,]),'START':([0,],[6,]),'END':([0,],[7,]),'NAME':([0,5,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,45,],[8,15,26,-28,-29,-30,-31,-32,-33,28,38,38,-20,-21,-22,-23,-24,-25,-26,-17,-16,]),'$end':([0,1,2,3,4,6,7,10,11,12,13,14,19,20,21,22,23,24,25,28,29,30,31,32,33,34,35,36,37,38,39,45,],[-34,0,-1,-2,-3,-11,-12,-28,-29,-30,-31,-32,-20,-21,-22,-23,-24,-25,-26,-15,-4,-5,-6,-7,-8,-18,-13,-14,-9,-19,-10,-16,]),'RAINBOW':([5,16,],[10,10,]),'RANDOW_CYCLE':([5,16,],[11,11,]),'THEATER_CHASE_RAINBOW':([5,16,],[12,12,]),'COLOR_WIPE':([5,16,],[13,13,]),'THEATER_CHASE':([5,16,],[14,14,]),'EQUALS':([8,],[16,]),'RED':([9,10,11,12,13,14,15,16,],[19,-28,-29,-30,-31,-32,-33,19,]),'BLUE':([9,10,11,12,13,14,15,16,],[20,-28,-29,-30,-31,-32,-33,20,]),'GREEN':([9,10,11,12,13,14,15,16,],[21,-28,-29,-30,-31,-32,-33,21,]),'YELLOW':([9,10,11,12,13,14,15,16,],[22,-28,-29,-30,-31,-32,-33,22,]),'ORANGE':([9,10,11,12,13,14,15,16,],[23,-28,-29,-30,-31,-32,-33,23,]),'PURPLE':([9,10,11,12,13,14,15,16,],[24,-28,-29,-30,-31,-32,-33,24,]),'WHITE':([9,10,11,12,13,14,15,16,],[25,-28,-29,-30,-31,-32,-33,25,]),'LP':([9,10,11,12,13,14,15,16,],[27,-28,-29,-30,-31,-32,-33,27,]),'NUMBER':([16,17,18,19,20,21,22,23,24,25,26,27,41,43,45,],[34,34,34,-20,-21,-22,-23,-24,-25,-26,-17,40,42,44,-16,]),'BUTTON_UP':([16,],[35,]),'BUTTON_DOWN':([16,],[36,]),'COMA':([40,42,],[41,43,]),'RP':([44,],[45,]),}
+_lr_action_items = {'ANIMATE':([0,],[5,]),'START':([0,],[6,]),'END':([0,],[7,]),'NAME':([0,5,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,45,],[8,15,26,-28,-29,-30,-31,-32,-33,28,38,38,-20,-21,-22,-23,-24,-25,-26,-17,-16,]),'$end':([0,1,2,3,4,6,7,10,11,12,13,14,19,20,21,22,23,24,25,28,29,30,31,32,33,34,35,36,37,38,39,45,],[-34,0,-1,-2,-3,-11,-12,-28,-29,-30,-31,-32,-20,-21,-22,-23,-24,-25,-26,-15,-4,-5,-6,-7,-8,-18,-13,-14,-9,-19,-10,-16,]),'RAINBOW':([5,16,],[10,10,]),'RAINBOW_CYCLE':([5,16,],[11,11,]),'THEATER_CHASE_RAINBOW':([5,16,],[12,12,]),'COLOR_WIPE':([5,16,],[13,13,]),'THEATER_CHASE':([5,16,],[14,14,]),'EQUALS':([8,],[16,]),'RED':([9,10,11,12,13,14,15,16,],[19,-28,-29,-30,-31,-32,-33,19,]),'BLUE':([9,10,11,12,13,14,15,16,],[20,-28,-29,-30,-31,-32,-33,20,]),'GREEN':([9,10,11,12,13,14,15,16,],[21,-28,-29,-30,-31,-32,-33,21,]),'YELLOW':([9,10,11,12,13,14,15,16,],[22,-28,-29,-30,-31,-32,-33,22,]),'ORANGE':([9,10,11,12,13,14,15,16,],[23,-28,-29,-30,-31,-32,-33,23,]),'PURPLE':([9,10,11,12,13,14,15,16,],[24,-28,-29,-30,-31,-32,-33,24,]),'WHITE':([9,10,11,12,13,14,15,16,],[25,-28,-29,-30,-31,-32,-33,25,]),'LP':([9,10,11,12,13,14,15,16,],[27,-28,-29,-30,-31,-32,-33,27,]),'NUMBER':([16,17,18,19,20,21,22,23,24,25,26,27,41,43,45,],[34,34,34,-20,-21,-22,-23,-24,-25,-26,-17,40,42,44,-16,]),'BUTTON_UP':([16,],[35,]),'BUTTON_DOWN':([16,],[36,]),'COMA':([40,42,],[41,43,]),'RP':([44,],[45,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -39,26 +39,26 @@ _lr_productions = [
   ('command -> ANIMATE animation rgb miliseconds','command',4,'p_command','LightUp.py',187),
   ('command -> START','command',1,'p_command','LightUp.py',188),
   ('command -> END','command',1,'p_command','LightUp.py',189),
-  ('button_pos -> BUTTON_UP','button_pos',1,'p_button_pos','LightUp.py',201),
-  ('button_pos -> BUTTON_DOWN','button_pos',1,'p_button_pos','LightUp.py',202),
-  ('button_pos -> NAME','button_pos',1,'p_button_pos_var','LightUp.py',208),
-  ('rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP','rgb',7,'p_rgb','LightUp.py',214),
-  ('rgb -> NAME','rgb',1,'p_rgb_var','LightUp.py',219),
-  ('miliseconds -> NUMBER','miliseconds',1,'p_miliseconds','LightUp.py',226),
-  ('miliseconds -> NAME','miliseconds',1,'p_miliseconds_var','LightUp.py',232),
-  ('color -> RED','color',1,'p_color','LightUp.py',239),
-  ('color -> BLUE','color',1,'p_color','LightUp.py',240),
-  ('color -> GREEN','color',1,'p_color','LightUp.py',241),
-  ('color -> YELLOW','color',1,'p_color','LightUp.py',242),
-  ('color -> ORANGE','color',1,'p_color','LightUp.py',243),
-  ('color -> PURPLE','color',1,'p_color','LightUp.py',244),
-  ('color -> WHITE','color',1,'p_color','LightUp.py',245),
-  ('color -> NAME','color',1,'p_color_var','LightUp.py',251),
-  ('animation -> RAINBOW','animation',1,'p_animation','LightUp.py',258),
-  ('animation -> RANDOW_CYCLE','animation',1,'p_animation','LightUp.py',259),
-  ('animation -> THEATER_CHASE_RAINBOW','animation',1,'p_animation','LightUp.py',260),
-  ('animation -> COLOR_WIPE','animation',1,'p_animation','LightUp.py',261),
-  ('animation -> THEATER_CHASE','animation',1,'p_animation','LightUp.py',262),
-  ('animation -> NAME','animation',1,'p_animation_var','LightUp.py',268),
-  ('empty -> <empty>','empty',0,'p_empty','LightUp.py',282),
+  ('button_pos -> BUTTON_UP','button_pos',1,'p_button_pos','LightUp.py',203),
+  ('button_pos -> BUTTON_DOWN','button_pos',1,'p_button_pos','LightUp.py',204),
+  ('button_pos -> NAME','button_pos',1,'p_button_pos_var','LightUp.py',210),
+  ('rgb -> LP NUMBER COMA NUMBER COMA NUMBER RP','rgb',7,'p_rgb','LightUp.py',216),
+  ('rgb -> NAME','rgb',1,'p_rgb_var','LightUp.py',221),
+  ('miliseconds -> NUMBER','miliseconds',1,'p_miliseconds','LightUp.py',228),
+  ('miliseconds -> NAME','miliseconds',1,'p_miliseconds_var','LightUp.py',234),
+  ('color -> RED','color',1,'p_color','LightUp.py',241),
+  ('color -> BLUE','color',1,'p_color','LightUp.py',242),
+  ('color -> GREEN','color',1,'p_color','LightUp.py',243),
+  ('color -> YELLOW','color',1,'p_color','LightUp.py',244),
+  ('color -> ORANGE','color',1,'p_color','LightUp.py',245),
+  ('color -> PURPLE','color',1,'p_color','LightUp.py',246),
+  ('color -> WHITE','color',1,'p_color','LightUp.py',247),
+  ('color -> NAME','color',1,'p_color_var','LightUp.py',253),
+  ('animation -> RAINBOW','animation',1,'p_animation','LightUp.py',260),
+  ('animation -> RAINBOW_CYCLE','animation',1,'p_animation','LightUp.py',261),
+  ('animation -> THEATER_CHASE_RAINBOW','animation',1,'p_animation','LightUp.py',262),
+  ('animation -> COLOR_WIPE','animation',1,'p_animation','LightUp.py',263),
+  ('animation -> THEATER_CHASE','animation',1,'p_animation','LightUp.py',264),
+  ('animation -> NAME','animation',1,'p_animation_var','LightUp.py',270),
+  ('empty -> <empty>','empty',0,'p_empty','LightUp.py',284),
 ]
