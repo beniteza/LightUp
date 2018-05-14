@@ -13,9 +13,6 @@ loop = []
 
 def createVariable(command):
     variables[command[1]] = command[2]
-    # print("New variable name: " + command[1])
-    # print("Variable value: " + variables[command[1]])
-    # print("Current variables:")
     print(variables)
 
 
@@ -52,13 +49,6 @@ def animate(command):
     else:
         time = variables[command[3]]
 
-    # print("Animation: " + animation)
-    # print("Color: " + color)
-    # print("ColorRGB: ")
-    # print(colorRGB)
-    # print("Time: ")
-    # print(time)
-
     # Step 3: Animation code
     if animation == "RAINBOW":
         if color != "":
@@ -74,13 +64,9 @@ def animate(command):
         createTheaterChaseRainbowAnimation(colorRGB, time)
     elif animation == "COLOR_WIPE":
         colorRGB = returnRGB(color)
-        # print("The RGB is: ")
-        # print(colorRGB)
         createColorWipeAnimation(colorRGB, time)
     elif animation == "THEATER_CHASE":
         colorRGB = returnRGB(color)
-        # print("The RGB is: ")
-        # print(colorRGB)
         createTheaterChaseAnimation(colorRGB, time)
 
 
@@ -107,6 +93,7 @@ def createRainbowAnimation(colorRGB, time):
     arduinoLine = "  rainbow_"+ str(rainbowNumber) + "(" + time + ");\n"
     loop.append(arduinoLine)
 
+
 #Missing definition code
 def createRainbowCycleAnimation(colorRGB, time):
     wheelNumber = createColorWheel(colorRGB)
@@ -128,6 +115,7 @@ def createRainbowCycleAnimation(colorRGB, time):
     # Call the animation on the loop method
     arduinoLine = "  rainbowCycle_"+ str(rainbowCycleNumber) + "(" + time + ");\n"
     loop.append(arduinoLine)
+
 
 #Missing definition code
 def createTheaterChaseRainbowAnimation(colorRGB, time):
@@ -254,6 +242,7 @@ def createInitialCode():
 
     initialCode.append(defaultCode)
 
+
 #Creates the final code to be used and uploads it to the arduino
 def upload():
     finalCode = initialCode[0]
@@ -289,17 +278,6 @@ def upload():
     arduinoCode.write(finalCode)
     arduinoCode.close()
 
+
 def terminalUpload():
     os.system("make upload clean")
-
-# class cd:
-#     """Context manager for changing the current working directory"""
-#     def __init__(self, newPath):
-#         self.newPath = os.path.expanduser(newPath)
-#
-#     def __enter__(self):
-#         self.savedPath = os.getcwd()
-#         os.chdir(self.newPath)
-#
-#     def __exit__(self, etype, value, traceback):
-#         os.chdir(self.savedPath)
