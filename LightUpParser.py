@@ -141,7 +141,3 @@ def runParser():
 
     file = 'LightUpCode.txt'
     translateCode(file)
-
-
-
-#asd
