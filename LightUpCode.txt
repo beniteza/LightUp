@@ -1,5 +1,5 @@
 START
-poop = BLUE
-mili = 5000
-ANIMATE COLOR_WIPE poop mili
+me = BLUE
+you = 1000
+ANIMATE RAINBOW_CYCLE me you
 END

@@ -1,3 +1,7 @@
+import os
+# import pyserial
+import subprocess
+
 initialCode = []
 variables = {}
 wheels = []
@@ -77,7 +81,7 @@ def animate(command):
         colorRGB = returnRGB(color)
         # print("The RGB is: ")
         # print(colorRGB)
-        createColorWipeAnimation(colorRGB, time)
+        createTheaterChaseAnimation(colorRGB, time)
 
 
 # Pass rgb tuple for wheel creation and time delay
@@ -100,7 +104,7 @@ def createRainbowAnimation(colorRGB, time):
 
     rainbows.append(arduinoBlock)
     # Call the animation on the loop method
-    arduinoLine = "  rainbow(" + time + ");\n"
+    arduinoLine = "  rainbow_"+ str(rainbowNumber) + "(" + time + ");\n"
     loop.append(arduinoLine)
 
 #Missing definition code
@@ -119,10 +123,10 @@ def createRainbowCycleAnimation(colorRGB, time):
                     "delay(wait);\n" \
                     "}\n" \
                     "}\n"
-
+    rainbowCycles.append(arduinoBlock)
 
     # Call the animation on the loop method
-    arduinoLine = "  rainbowCycle(" + time + ");\n"
+    arduinoLine = "  rainbowCycle_"+ str(rainbowCycleNumber) + "(" + time + ");\n"
     loop.append(arduinoLine)
 
 #Missing definition code
@@ -145,9 +149,11 @@ def createTheaterChaseRainbowAnimation(colorRGB, time):
                     "}\n" \
                     "}\n" \
                     "}\n" \
+                    "}\n"
 
+    theaterChaseRainbows.append(arduinoBlock)
     #Call the animation on the loop method
-    arduinoLine = "  theaterChaseRainbow(" + time + ");\n"
+    arduinoLine = "  theaterChaseRainbow_"+ str(theaterCRainbowNumber) + "(" + time + ");\n"
     loop.append(arduinoLine)
 
 
@@ -208,7 +214,7 @@ def createInitialCode():
                   " \n" \
                   "#define PIN 6 \n" \
                   "    \n" \
-                  "Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, PIN, NEO_GRB + NEO_KHZ800); \n" \
+                  "Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, PIN, NEO_GRB + NEO_KHZ800); \n" \
                   "   \n" \
                   "void setup() { \n" \
                   "  #if defined (__AVR_ATtiny85__) \n" \
@@ -278,7 +284,22 @@ def upload():
     finalCode += "}"
 
     #Create arduino file
-    filePath = "ArduinoFiles/arduinoCode.ino"
+    filePath = "arduinoCode.ino"
     arduinoCode = open(filePath, 'w')
     arduinoCode.write(finalCode)
     arduinoCode.close()
+
+def terminalUpload():
+    os.system("make upload clean")
+
+# class cd:
+#     """Context manager for changing the current working directory"""
+#     def __init__(self, newPath):
+#         self.newPath = os.path.expanduser(newPath)
+#
+#     def __enter__(self):
+#         self.savedPath = os.getcwd()
+#         os.chdir(self.newPath)
+#
+#     def __exit__(self, etype, value, traceback):
+#         os.chdir(self.savedPath)
