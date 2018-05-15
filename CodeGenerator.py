@@ -71,7 +71,6 @@ def animate(command):
 
 
 # Pass rgb tuple for wheel creation and time delay
-#Missing definition code
 def createRainbowAnimation(colorRGB, time):
     wheelNumber = createColorWheel(colorRGB)
     #Animation method
@@ -94,7 +93,6 @@ def createRainbowAnimation(colorRGB, time):
     loop.append(arduinoLine)
 
 
-#Missing definition code
 def createRainbowCycleAnimation(colorRGB, time):
     wheelNumber = createColorWheel(colorRGB)
     #Animation method
@@ -117,7 +115,6 @@ def createRainbowCycleAnimation(colorRGB, time):
     loop.append(arduinoLine)
 
 
-#Missing definition code
 def createTheaterChaseRainbowAnimation(colorRGB, time):
     wheelNumber = createColorWheel(colorRGB)
     #Animation method
@@ -156,7 +153,6 @@ def createTheaterChaseAnimation(colorRGB, time):
     loop.append(arduinoLine)
 
 
-#Work in progress
 def createColorWheel(colorRGB):
     wheelNumber = len(wheels) + 1
     arduinoBlock = "uint32_t Wheel_" + str(wheelNumber) + "(byte WheelPos) {\n" \
