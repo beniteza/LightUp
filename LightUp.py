@@ -312,5 +312,5 @@ def translateCode(p):
             exit()
 
 
-file = 'LightUpCode.txt'
-translateCode(file)
+# file = 'LightUpCode.txt'
+# translateCode(file)
