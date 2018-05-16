@@ -42,34 +42,6 @@ void theaterChase(uint32_t c, uint8_t wait) {
     } 
   } 
 }
-uint32_t Wheel_1(byte WheelPos) {
-   WheelPos = 255 - WheelPos;
-   if (WheelPos < 85)
-       {
-       return strip.Color(0- WheelPos * 3, 0, WheelPos * 3);
-       }   if (WheelPos < 170) {
-       WheelPos -= 85;
-       return strip.Color(0, WheelPos * 3, 0 - WheelPos * 3);
-   }
-   WheelPos -= 170;
-   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
-}
-void theaterChaseRainbow_1(uint8_t wait) {
-for (int j=0; j < 256; j++) {
-for (int q=0; q < 3; q++) {
-for (uint16_t i=0; i < strip.numPixels(); i=i+3) {
-strip.setPixelColor(i+q, Wheel_1( (i+j) % 255));
-}
-strip.show();
-
-delay(wait);
-
-for (uint16_t i=0; i < strip.numPixels(); i=i+3) {
-strip.setPixelColor(i+q, 0);
-}
-}
-}
-}
 void loop() {
-  theaterChaseRainbow_1(1000);
+  colorWipe(strip.Color(0,255, 0), 10);
 }

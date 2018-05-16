@@ -1,6 +1,13 @@
 import LightUp as App
 import time
 
+#   SPRING 2018 PL PROJECT
+#
+#   AXVIEL BENITEZ
+#   JUAN AGOSTO
+#   EDUARDO PEREZ
+#   CRISTIAN ROSADO
+
 print("Running LightUp\n")
 time.sleep(0.25)
 print("Processing Code...\n")

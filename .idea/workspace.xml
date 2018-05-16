@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75227ebc-19d9-47d1-b5fa-dd72a852b353" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/PL_LightUp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PL_LightUp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LightUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/LightUp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LightUpApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/LightUpApp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LightUpCode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LightUpCode.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LightUpParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/LightUpParser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arduinoCode.ino" beforeDir="false" afterPath="$PROJECT_DIR$/arduinoCode.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,20 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LightUp.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LightUp.py">
+      <file leaf-file-name="LightUpApp.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LightUpApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="76">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LightUpParser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LightUpParser.py">
+      <file leaf-file-name="LightUp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LightUp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="9" />
+            <state>
+              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -41,8 +40,8 @@
       <file leaf-file-name="CodeGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5130">
-              <caret line="272" selection-start-line="272" selection-end-line="272" />
+            <state relative-caret-position="5054">
+              <caret line="268" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -77,6 +76,7 @@
         <option value="$PROJECT_DIR$/CodeGenerator.py" />
         <option value="$PROJECT_DIR$/LightUpParser.py" />
         <option value="$PROJECT_DIR$/LightUp.py" />
+        <option value="$PROJECT_DIR$/LightUpApp.py" />
       </list>
     </option>
   </component>
@@ -98,6 +98,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,7 +110,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -129,7 +129,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.LightUpApp">
     <configuration name="LightUp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PL_LightUp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,8 +149,31 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="LightUpApp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PL_LightUp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LightUpApp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.LightUp" />
+      <item itemvalue="Python.LightUpApp" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.LightUpApp" />
         <item itemvalue="Python.LightUp" />
       </list>
     </recent_temporary>
@@ -185,16 +208,17 @@
   </component>
   <component name="TodoView" selected-index="4" />
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24959569" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17250673" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992035" />
       <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="right" id="R Graphics" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32992035" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33966243" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33913934" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -214,23 +238,23 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25" />
       <window_info id="Structure" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="2" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32992035" />
+      <window_info anchor="bottom" id="Version Control" order="1" visible="true" weight="0.32992035" />
       <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Find" order="6" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="1" visible="true" weight="0.32992035" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="right" id="SciView" order="1" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="2" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -278,13 +302,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LightUpParser.py">
+    <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="9" />
+        <state relative-caret-position="5092">
+          <caret line="268" selection-start-line="268" selection-end-line="268" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LightUp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5092">
+          <caret line="268" selection-start-line="268" selection-end-line="268" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LightUp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5168">
+          <caret line="272" selection-start-line="272" selection-end-line="272" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LightUp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LightUpParser.py" />
     <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5130">
@@ -302,13 +371,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LightUpParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2717">
-          <caret line="143" selection-start-line="143" selection-end-line="143" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/LightUpParser.py" />
     <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5339">
@@ -543,25 +606,29 @@
     <entry file="file://$PROJECT_DIR$/UploadCode.py" />
     <entry file="file://$PROJECT_DIR$/CodeGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5130">
-          <caret line="272" selection-start-line="272" selection-end-line="272" />
+        <state relative-caret-position="5054">
+          <caret line="268" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LightUpParser.py">
+    <entry file="file://$PROJECT_DIR$/LightUpParser.py" />
+    <entry file="file://$PROJECT_DIR$/LightUp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="9" />
+        <state>
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LightUp.py">
+    <entry file="file://$PROJECT_DIR$/LightUpApp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        <state relative-caret-position="76">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
