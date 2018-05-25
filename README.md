@@ -1,0 +1,5 @@
+# LightUp
+
+## Hi there
+
+SPRING 2018 ICOM4036/CIIC4030 PL PROJECT
