@@ -10,7 +10,7 @@ Animated LEDs are fantastic for decorating kitchens, personal computer desks, th
 Commands:
 1. sudo apt-get update
 2. sudo apt-get install arduino-mk
-3. sudo usermod -a -G dialout <username>
+3. sudo usermod -a -G dialout *ubuntu_username*
 4. sudo chmod a+rw /dev/ttACM0
 5. export PYTHONPATH=$PYTHONPATH: /host/Python35/Lib/site-packages
 
