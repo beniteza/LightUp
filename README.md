@@ -13,6 +13,7 @@ Commands:
 3. sudo usermod -a -G dialout <username>
 4. sudo chmod a+rw /dev/ttACM0
 5. export PYTHONPATH=$PYTHONPATH: /host/Python35/Lib/site-packages
+
 Libraries:
 1. PLY
 2. pyserial
