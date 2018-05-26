@@ -7,7 +7,15 @@ Animated LEDs are fantastic for decorating kitchens, personal computer desks, th
 ## Language Tutorial
 
 ### Terminal Commands and Python Libraries to Install
-1. ...
+Commands:
+1. sudo apt-get update
+2. sudo apt-get install arduino-mk
+3. sudo usermod -a -G dialout <username>
+4. sudo chmod a+rw /dev/ttACM0
+5. export PYTHONPATH=$PYTHONPATH: /host/Python35/Lib/site-packages
+Libraries:
+1. PLY
+2. pyserial
 
 ### How to Use
 1. Open the LightUpCode.txt file and write START on the first line. 
@@ -31,6 +39,6 @@ TODO
 
 ## Conclusion
 
-TODO
+LightUp makes animating LEDs an easy task. It removes the barrier of understanding the C porgramming language and takes the user straight to what they want to do. This porgramming language can also serve as an introdcution to programming for those users that have never touched the subject at all. 
 
 SPRING 2018 ICOM4036/CIIC4030 PL PROJECT
