@@ -21,6 +21,10 @@ Animated LEDs are fantastic for decorating kitchens, personal computer desks, th
 ### Video Demonstration
 ...link...
 
+## Reference Manual
+
+TODO
+
 ## Language Development
 
 TODO
