@@ -28,11 +28,11 @@ Libraries:
 7. Write END to close the code to be translated.
 
 ### Video Demonstration
-...link...
+TODO
 
 ## Reference Manual
 
-TODO
+[Reference Manual can be found here](https://github.com/beniteza/LightUp/wiki/Reference-Manual)
 
 ## Language Development
 
