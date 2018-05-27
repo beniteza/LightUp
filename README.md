@@ -43,7 +43,11 @@ TODO
 LightUp makes animating LEDs an easy task. It removes the barrier of understanding the C porgramming language and takes the user straight to what they want to do. This porgramming language can also serve as an introdcution to programming for those users that have never touched the subject at all. 
 
 SPRING 2018 ICOM4036/CIIC4030 PL PROJECT
+
 Axviel Benitez
+
 Cristian Rosado
+
 Juan Agosto
+
 Eduardo Perez
