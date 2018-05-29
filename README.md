@@ -38,7 +38,7 @@ Libraries:
 
 ## Language Development
 
-![alt text](https://github.com/beniteza/LightUp/blob/master/Translato_Architecture.png?raw=true "Translator_Architecture")
+![alt text](https://github.com/beniteza/LightUp/blob/master/WhatsApp%20Image%202018-05-29%20at%207.51.06%20PM.jpeg?raw=true "Translator_Architecture")
 
 [Language Development information can be found here](https://github.com/beniteza/LightUp/wiki/Language-Development)
 
