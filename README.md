@@ -39,6 +39,7 @@ Libraries:
 ## Language Development
 
 ![alt text](https://github.com/beniteza/LightUp/blob/master/Translato_Architecture.png?raw=true "Translator_Architecture")
+
 [Language Development information can be found here](https://github.com/beniteza/LightUp/wiki/Language-Development)
 
 ## Conclusion
