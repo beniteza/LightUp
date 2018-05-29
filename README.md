@@ -26,6 +26,8 @@ Libraries:
 5. Choose an animation. Acceptable animations are: THEATER_CHASE_RAINBOW, RAINBOW, RAINBOW_CYCLE, COLOR_WIPE, THEATER_CHASE. 
 6. Add the color and time variable after the selected animation. 
 7. Write END to close the code to be translated.
+8. Save the text file.
+9. open the terminal and run the command "python3 LightUpApp.py"
 
 ### Video Demonstration
 [Video demonstration can be found here](https://youtu.be/9BA-wBgDyLw)
